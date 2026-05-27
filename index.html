@@ -1,0 +1,441 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>蔵重税理士事務所さま 5/29 打ち合わせアジェンダ</title>
+  <meta name="description" content="2026年5月29日 10:00-11:00 蔵重税理士事務所さま打ち合わせアジェンダ">
+  <style>
+    :root {
+      color-scheme: light;
+      --ink: #17202a;
+      --muted: #5f6c7b;
+      --line: #d9e1e8;
+      --panel: #ffffff;
+      --soft: #f4f7f9;
+      --blue: #275f8f;
+      --green: #246b59;
+      --gold: #8a6818;
+      --red: #9c3d35;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Yu Gothic", "YuGothic", "Segoe UI", sans-serif;
+      color: var(--ink);
+      background: #eef3f6;
+      line-height: 1.7;
+    }
+
+    main {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 32px 20px 56px;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: 1.35fr 0.65fr;
+      gap: 24px;
+      align-items: stretch;
+      margin-bottom: 24px;
+    }
+
+    .hero-copy,
+    .meeting-box,
+    section {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      box-shadow: 0 18px 40px rgba(32, 48, 64, 0.08);
+    }
+
+    .hero-copy {
+      padding: 32px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-copy::before {
+      content: "";
+      position: absolute;
+      inset: 0 auto 0 0;
+      width: 8px;
+      background: linear-gradient(180deg, var(--blue), var(--green));
+    }
+
+    .eyebrow {
+      margin: 0 0 10px;
+      color: var(--blue);
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    h1 {
+      margin: 0 0 16px;
+      font-size: 34px;
+      line-height: 1.25;
+      letter-spacing: 0;
+    }
+
+    h2 {
+      margin: 0 0 16px;
+      font-size: 22px;
+      letter-spacing: 0;
+    }
+
+    h3 {
+      margin: 0 0 8px;
+      font-size: 17px;
+      letter-spacing: 0;
+    }
+
+    p {
+      margin: 0;
+    }
+
+    .lead {
+      max-width: 760px;
+      color: var(--muted);
+      font-size: 16px;
+    }
+
+    .meeting-box {
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 18px;
+    }
+
+    .meeting-row {
+      display: grid;
+      grid-template-columns: 86px 1fr;
+      gap: 10px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--line);
+      font-size: 15px;
+    }
+
+    .meeting-row:last-child {
+      border-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    .label {
+      color: var(--muted);
+      font-weight: 700;
+    }
+
+    .note {
+      margin-top: 14px;
+      padding: 12px 14px;
+      border-left: 4px solid var(--gold);
+      background: #fff8e5;
+      color: #514017;
+      font-size: 14px;
+    }
+
+    section {
+      padding: 26px;
+      margin-top: 18px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .summary-item {
+      min-height: 126px;
+      padding: 18px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--soft);
+    }
+
+    .summary-item strong {
+      display: block;
+      margin-bottom: 8px;
+      color: var(--blue);
+      font-size: 16px;
+    }
+
+    .timeline {
+      display: grid;
+      gap: 12px;
+    }
+
+    .slot {
+      display: grid;
+      grid-template-columns: 128px 1fr;
+      gap: 18px;
+      padding: 16px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fff;
+    }
+
+    .time {
+      color: var(--green);
+      font-weight: 800;
+      white-space: nowrap;
+    }
+
+    ul {
+      margin: 8px 0 0;
+      padding-left: 20px;
+    }
+
+    li + li {
+      margin-top: 4px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      overflow-wrap: anywhere;
+      font-size: 14px;
+    }
+
+    th,
+    td {
+      padding: 12px 10px;
+      vertical-align: top;
+      border-bottom: 1px solid var(--line);
+      text-align: left;
+    }
+
+    th {
+      color: var(--muted);
+      background: var(--soft);
+      font-weight: 800;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 3px 8px;
+      border-radius: 999px;
+      color: #fff;
+      font-size: 12px;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    .b-high {
+      background: var(--red);
+    }
+
+    .b-mid {
+      background: var(--gold);
+    }
+
+    .b-low {
+      background: var(--green);
+    }
+
+    .footer {
+      margin-top: 20px;
+      color: var(--muted);
+      font-size: 13px;
+      text-align: center;
+    }
+
+    @media (max-width: 840px) {
+      main {
+        padding: 18px 12px 40px;
+      }
+
+      .hero,
+      .grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-copy,
+      .meeting-box,
+      section {
+        padding: 20px;
+      }
+
+      h1 {
+        font-size: 26px;
+      }
+
+      .slot {
+        grid-template-columns: 1fr;
+        gap: 6px;
+      }
+
+      .meeting-row {
+        grid-template-columns: 74px 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <div class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow">Meeting Agenda</p>
+        <h1>蔵重税理士事務所さま<br>AI活用ワークフロー打ち合わせ</h1>
+        <p class="lead">前回ヒアリング内容と受領サンプルをもとに、仕訳チェック、PDFリネーム、財務分析の初回実証結果を確認し、次の実装範囲と宿題を決めるための60分です。</p>
+        <div class="note">日付確認：ご指定は「5/29(木)」ですが、2026年5月29日は金曜日です。本資料では 2026年5月29日（金）として記載しています。</div>
+      </div>
+      <aside class="meeting-box" aria-label="会議情報">
+        <div class="meeting-row"><span class="label">日時</span><span>2026年5月29日（金）10:00-11:00</span></div>
+        <div class="meeting-row"><span class="label">対象</span><span>蔵重税理士事務所さま / AIバード会計チーム</span></div>
+        <div class="meeting-row"><span class="label">形式</span><span>オンライン想定</span></div>
+        <div class="meeting-row"><span class="label">目的</span><span>PoC結果の確認と、次に進める実装テーマの合意</span></div>
+      </aside>
+    </div>
+
+    <section>
+      <h2>今回のゴール</h2>
+      <div class="grid">
+        <div class="summary-item">
+          <strong>1. 仕訳チェック</strong>
+          <p>弥生CSVから確認候補を抽出する初回レポートを見て、実務で欲しい指摘粒度をすり合わせる。</p>
+        </div>
+        <div class="summary-item">
+          <strong>2. PDFリネーム</strong>
+          <p>不動産管理PDFの内容読み取りとファイル名自動付与の実証結果を確認する。</p>
+        </div>
+        <div class="summary-item">
+          <strong>3. 財務分析</strong>
+          <p>試算表から面談用の論点・質問候補を作る流れを確認し、次回に必要な追加資料を決める。</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>アジェンダ（60分）</h2>
+      <div class="timeline">
+        <div class="slot">
+          <div class="time">10:00-10:05</div>
+          <div>
+            <h3>開始・本日の到達点確認</h3>
+            <p>前回の3テーマと、今回確認する成果物を共有します。</p>
+          </div>
+        </div>
+        <div class="slot">
+          <div class="time">10:05-10:20</div>
+          <div>
+            <h3>仕訳チェックPoCの確認</h3>
+            <ul>
+              <li>貸借一致、税区分、大口取引、給与複合仕訳、手形取引などの確認候補をレビュー</li>
+              <li>蔵重先生が「本当に見たい指摘」と「不要な指摘」を仕分け</li>
+              <li>今後のチェック観点を事務所標準ルールとして整える方針を確認</li>
+            </ul>
+          </div>
+        </div>
+        <div class="slot">
+          <div class="time">10:20-10:35</div>
+          <div>
+            <h3>PDFリネーム実証の確認</h3>
+            <ul>
+              <li>不動産管理精算書、送金案内、月次収支報告書の読み取り結果を確認</li>
+              <li>命名ルール「年月_顧客名_物件名_帳票種別_主要金額」を確認</li>
+              <li>NAS保存まで進める場合に必要な物件名マスタ・保存先ルールを確認</li>
+            </ul>
+          </div>
+        </div>
+        <div class="slot">
+          <div class="time">10:35-10:50</div>
+          <div>
+            <h3>財務分析PoCの確認</h3>
+            <ul>
+              <li>試算表から作成した面談用サマリー、良い点、気になる点、質問候補を確認</li>
+              <li>前期比較・月次推移・補助元帳など、追加で必要な資料を整理</li>
+              <li>顧客面談で使える文体・粒度をすり合わせ</li>
+            </ul>
+          </div>
+        </div>
+        <div class="slot">
+          <div class="time">10:50-10:58</div>
+          <div>
+            <h3>次回までの宿題と優先順位決め</h3>
+            <p>次に実装するテーマ、データ受け渡し方法、担当者、期限を決めます。</p>
+          </div>
+        </div>
+        <div class="slot">
+          <div class="time">10:58-11:00</div>
+          <div>
+            <h3>クロージング</h3>
+            <p>合意事項と次回日程の確認を行います。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>宿題・事前準備</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>優先度</th>
+            <th>担当</th>
+            <th>内容</th>
+            <th>目的</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><span class="badge b-high">高</span></td>
+            <td>高橋</td>
+            <td>仕訳チェック結果、財務分析メモ、PDFリネーム実証メモを共有できる状態にする</td>
+            <td>当日その場で見ながら判断できるようにする</td>
+          </tr>
+          <tr>
+            <td><span class="badge b-high">高</span></td>
+            <td>蔵重先生</td>
+            <td>仕訳チェックで実際に指摘してほしい項目、過去に見落としやすかった事例を3〜5件共有</td>
+            <td>AIのチェック観点を事務所の実務に寄せる</td>
+          </tr>
+          <tr>
+            <td><span class="badge b-high">高</span></td>
+            <td>蔵重先生</td>
+            <td>「?」付き摘要を含むCSV、または確認依頼メッセージを作りたい仕訳例を共有</td>
+            <td>確認依頼文案の自動生成を検証する</td>
+          </tr>
+          <tr>
+            <td><span class="badge b-mid">中</span></td>
+            <td>蔵重先生</td>
+            <td>スキャン直後の生PDFを3〜5件、可能であれば物件名・保存先フォルダのルールも共有</td>
+            <td>PDF自動リネームとNAS保存振り分けを実証する</td>
+          </tr>
+          <tr>
+            <td><span class="badge b-mid">中</span></td>
+            <td>蔵重先生</td>
+            <td>前期試算表、月次推移表、借入金返済予定表など、財務分析に使う追加資料を共有</td>
+            <td>単年度分析から比較・推移分析へ広げる</td>
+          </tr>
+          <tr>
+            <td><span class="badge b-low">低</span></td>
+            <td>高橋</td>
+            <td>打ち合わせ後、決定事項を次回実装タスクに分解してMarkdownに残す</td>
+            <td>20時間枠を計画的に消化できる状態にする</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section>
+      <h2>当日確認したい決定事項</h2>
+      <ul>
+        <li>最初に実務投入するテーマは、仕訳チェック、PDFリネーム、財務分析のどれにするか</li>
+        <li>AIの出力形式は、Markdown、Excel、CSV、Googleドキュメントのどれが使いやすいか</li>
+        <li>PDFリネームは、元ファイルを残してコピーする運用か、直接リネームする運用か</li>
+        <li>NAS保存先のフォルダルールを、物件名・顧客名・年月のどれで切るか</li>
+        <li>会計担当3名で共通利用する場合のチェック手順と権限</li>
+      </ul>
+    </section>
+
+    <p class="footer">Prepared for Kurashige Tax Accountant Office / AI Bird Accounting Team</p>
+  </main>
+</body>
+</html>
