@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>蔵重税理士事務所さま 5/29 打ち合わせアジェンダ</title>
-  <meta name="description" content="2026年5月29日 10:00-11:00 蔵重税理士事務所さま打ち合わせアジェンダ">
+  <title>蔵重税理士事務所さま 5/29 打ち合わせハブ</title>
+  <meta name="description" content="2026年5月29日 10:00-11:00 蔵重税理士事務所さま打ち合わせアジェンダとPoC資料ハブ">
   <style>
     :root {
       color-scheme: light;
@@ -166,6 +166,65 @@
       font-size: 16px;
     }
 
+    .poc-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .poc-card {
+      display: flex;
+      min-height: 210px;
+      padding: 18px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fff;
+      color: inherit;
+      text-decoration: none;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: border-color 140ms ease, transform 140ms ease, box-shadow 140ms ease;
+    }
+
+    .poc-card:hover,
+    .poc-card:focus-visible {
+      border-color: var(--blue);
+      box-shadow: 0 14px 28px rgba(39, 95, 143, 0.14);
+      outline: none;
+      transform: translateY(-1px);
+    }
+
+    .poc-card p {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .poc-meta {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 12px;
+      flex-wrap: wrap;
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      min-height: 24px;
+      padding: 2px 8px;
+      border-radius: 999px;
+      background: var(--soft);
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .link-label {
+      margin-top: 16px;
+      color: var(--blue);
+      font-weight: 800;
+      font-size: 14px;
+    }
+
     .timeline {
       display: grid;
       gap: 12px;
@@ -252,7 +311,8 @@
       }
 
       .hero,
-      .grid {
+      .grid,
+      .poc-grid {
         grid-template-columns: 1fr;
       }
 
@@ -281,7 +341,7 @@
   <main>
     <div class="hero">
       <div class="hero-copy">
-        <p class="eyebrow">Meeting Agenda</p>
+        <p class="eyebrow">Meeting Hub</p>
         <h1>蔵重税理士事務所さま<br>AI活用ワークフロー打ち合わせ</h1>
         <p class="lead">前回ヒアリング内容と受領サンプルをもとに、仕訳チェック、PDFリネーム、財務分析の初回実証結果を確認し、次の実装範囲と宿題を決めるための60分です。</p>
       </div>
@@ -308,6 +368,45 @@
           <strong>3. 財務分析</strong>
           <p>試算表から面談用の論点・質問候補を作る流れを確認し、次回に必要な追加資料を決める。</p>
         </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>PoC資料ハブ</h2>
+      <div class="poc-grid">
+        <a class="poc-card" href="poc/journal-check.html">
+          <div>
+            <div class="poc-meta">
+              <span class="pill">会計CSV</span>
+              <span class="pill">確認候補抽出</span>
+            </div>
+            <h3>仕訳チェックPoC</h3>
+            <p>弥生会計系CSVから、貸借一致、税区分、大口取引、給与複合仕訳、手形取引などの確認候補を整理した初回検証です。</p>
+          </div>
+          <span class="link-label">詳細を見る</span>
+        </a>
+        <a class="poc-card" href="poc/pdf-rename.html">
+          <div>
+            <div class="poc-meta">
+              <span class="pill">画像PDF</span>
+              <span class="pill">ファイル名自動付与</span>
+            </div>
+            <h3>PDFリネームPoC</h3>
+            <p>不動産管理資料PDFから、対象年月、物件名、帳票種別、主要金額を読み取り、説明的なファイル名にする実証です。</p>
+          </div>
+          <span class="link-label">詳細を見る</span>
+        </a>
+        <a class="poc-card" href="poc/financial-analysis.html">
+          <div>
+            <div class="poc-meta">
+              <span class="pill">試算表</span>
+              <span class="pill">面談メモ</span>
+            </div>
+            <h3>財務分析PoC</h3>
+            <p>試算表から、面談で使える一言サマリー、良い点、気になる点、社長への質問候補を作る初回検証です。</p>
+          </div>
+          <span class="link-label">詳細を見る</span>
+        </a>
       </div>
     </section>
 

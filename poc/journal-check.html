@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>仕訳チェックPoC | 蔵重税理士事務所さま</title>
+  <style>
+    :root { --ink:#17202a; --muted:#5f6c7b; --line:#d9e1e8; --panel:#fff; --soft:#f4f7f9; --blue:#275f8f; --green:#246b59; --gold:#8a6818; --red:#9c3d35; }
+    * { box-sizing: border-box; }
+    body { margin:0; font-family:-apple-system,BlinkMacSystemFont,"Hiragino Sans","Yu Gothic","YuGothic","Segoe UI",sans-serif; color:var(--ink); background:#eef3f6; line-height:1.7; }
+    main { max-width:1040px; margin:0 auto; padding:32px 20px 56px; }
+    a { color:var(--blue); font-weight:800; }
+    .back { display:inline-block; margin-bottom:18px; text-decoration:none; }
+    .hero, section { background:var(--panel); border:1px solid var(--line); border-radius:8px; box-shadow:0 18px 40px rgba(32,48,64,.08); }
+    .hero { padding:30px; border-left:8px solid var(--blue); }
+    .eyebrow { margin:0 0 10px; color:var(--blue); font-size:14px; font-weight:800; }
+    h1 { margin:0 0 14px; font-size:32px; line-height:1.25; letter-spacing:0; }
+    h2 { margin:0 0 14px; font-size:22px; letter-spacing:0; }
+    h3 { margin:0 0 8px; font-size:17px; letter-spacing:0; }
+    p { margin:0; }
+    .lead { color:var(--muted); max-width:780px; }
+    section { margin-top:18px; padding:24px; }
+    .grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:14px; }
+    .box { padding:16px; border:1px solid var(--line); border-radius:8px; background:var(--soft); }
+    .box strong { display:block; color:var(--blue); margin-bottom:6px; }
+    table { width:100%; border-collapse:collapse; font-size:14px; overflow-wrap:anywhere; }
+    th, td { padding:12px 10px; border-bottom:1px solid var(--line); text-align:left; vertical-align:top; }
+    th { background:var(--soft); color:var(--muted); }
+    ul { margin:8px 0 0; padding-left:20px; }
+    li + li { margin-top:4px; }
+    .badge { display:inline-block; padding:3px 8px; border-radius:999px; color:#fff; font-size:12px; font-weight:800; white-space:nowrap; }
+    .high { background:var(--red); } .mid { background:var(--gold); } .low { background:var(--green); }
+    @media (max-width:760px){ main{padding:18px 12px 40px;} .hero,section{padding:20px;} h1{font-size:26px;} .grid{grid-template-columns:1fr;} }
+  </style>
+</head>
+<body>
+  <main>
+    <a class="back" href="../index.html">← アジェンダに戻る</a>
+    <div class="hero">
+      <p class="eyebrow">PoC 01 / Journal Check</p>
+      <h1>仕訳チェックPoC</h1>
+      <p class="lead">弥生会計系の仕訳CSVを読み込み、AIが確認候補を洗い出すための初回検証です。最終判断ではなく、担当者が見るべき論点の抽出を目的にしています。</p>
+    </div>
+
+    <section>
+      <h2>検証したこと</h2>
+      <div class="grid">
+        <div class="box"><strong>データ整合</strong><p>CSVの文字コード、行数、貸借合計、対象期間を確認。</p></div>
+        <div class="box"><strong>確認候補抽出</strong><p>大口取引、税区分、複合仕訳、マイナス仕訳などを分類。</p></div>
+        <div class="box"><strong>実務出力</strong><p>確認理由と顧客確認文案まで出せる形を試作。</p></div>
+      </div>
+    </section>
+
+    <section>
+      <h2>初回結果サマリー</h2>
+      <table>
+        <tbody>
+          <tr><th>対象</th><td>会計サンプルCSV 1件</td></tr>
+          <tr><th>基本整合</th><td>借方合計と貸方合計は一致。インポートデータとしての基本整合は取れている。</td></tr>
+          <tr><th>主な確認候補</th><td>手形取引、給与関連の複合仕訳、車検関連費用、返品・値引、口座間資金移動、振込手数料処理。</td></tr>
+          <tr><th>出力方針</th><td>重要度、該当行、確認ポイント、理由、顧客確認文案をセットで出力。</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section>
+      <h2>当日確認したいポイント</h2>
+      <table>
+        <thead><tr><th>優先度</th><th>確認事項</th><th>決めたいこと</th></tr></thead>
+        <tbody>
+          <tr><td><span class="badge high">高</span></td><td>AIが出した確認候補の粒度</td><td>細かく出すか、重要候補だけに絞るか。</td></tr>
+          <tr><td><span class="badge high">高</span></td><td>税区分・消費税チェックの基準</td><td>蔵重税理士事務所さまの判断ルールをどう反映するか。</td></tr>
+          <tr><td><span class="badge mid">中</span></td><td>確認依頼文案の文体</td><td>顧客向けにそのまま使える文章のトーン。</td></tr>
+          <tr><td><span class="badge mid">中</span></td><td>出力形式</td><td>Markdown、Excel、CSV、Google Docsのどれで運用するか。</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section>
+      <h2>次の宿題</h2>
+      <ul>
+        <li>過去に見落としやすかった仕訳チェック事例を3〜5件共有いただく。</li>
+        <li>「?」付き摘要を含むCSV、または確認依頼文案を作りたい仕訳例を共有いただく。</li>
+        <li>過去月CSVを追加し、通常処理との差分チェックを試す。</li>
+      </ul>
+    </section>
+  </main>
+</body>
+</html>

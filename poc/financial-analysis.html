@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>財務分析PoC | 蔵重税理士事務所さま</title>
+  <style>
+    :root { --ink:#17202a; --muted:#5f6c7b; --line:#d9e1e8; --panel:#fff; --soft:#f4f7f9; --blue:#275f8f; --green:#246b59; --gold:#8a6818; --red:#9c3d35; }
+    * { box-sizing: border-box; }
+    body { margin:0; font-family:-apple-system,BlinkMacSystemFont,"Hiragino Sans","Yu Gothic","YuGothic","Segoe UI",sans-serif; color:var(--ink); background:#eef3f6; line-height:1.7; }
+    main { max-width:1040px; margin:0 auto; padding:32px 20px 56px; }
+    a { color:var(--blue); font-weight:800; }
+    .back { display:inline-block; margin-bottom:18px; text-decoration:none; }
+    .hero, section { background:var(--panel); border:1px solid var(--line); border-radius:8px; box-shadow:0 18px 40px rgba(32,48,64,.08); }
+    .hero { padding:30px; border-left:8px solid var(--gold); }
+    .eyebrow { margin:0 0 10px; color:var(--gold); font-size:14px; font-weight:800; }
+    h1 { margin:0 0 14px; font-size:32px; line-height:1.25; letter-spacing:0; }
+    h2 { margin:0 0 14px; font-size:22px; letter-spacing:0; }
+    p { margin:0; }
+    .lead { color:var(--muted); max-width:780px; }
+    section { margin-top:18px; padding:24px; }
+    .grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:14px; }
+    .box { padding:16px; border:1px solid var(--line); border-radius:8px; background:var(--soft); }
+    .box strong { display:block; color:var(--gold); margin-bottom:6px; }
+    table { width:100%; border-collapse:collapse; font-size:14px; overflow-wrap:anywhere; }
+    th, td { padding:12px 10px; border-bottom:1px solid var(--line); text-align:left; vertical-align:top; }
+    th { background:var(--soft); color:var(--muted); }
+    ul { margin:8px 0 0; padding-left:20px; }
+    li + li { margin-top:4px; }
+    @media (max-width:760px){ main{padding:18px 12px 40px;} .hero,section{padding:20px;} h1{font-size:26px;} .grid{grid-template-columns:1fr;} }
+  </style>
+</head>
+<body>
+  <main>
+    <a class="back" href="../index.html">← アジェンダに戻る</a>
+    <div class="hero">
+      <p class="eyebrow">PoC 03 / Financial Analysis</p>
+      <h1>財務分析PoC</h1>
+      <p class="lead">試算表を読み込み、顧客面談で使える論点・質問候補をAIで下書きできるかを確認した初回検証です。</p>
+    </div>
+
+    <section>
+      <h2>検証したこと</h2>
+      <div class="grid">
+        <div class="box"><strong>試算表読取</strong><p>貸借、損益、製造原価の主要項目を整理。</p></div>
+        <div class="box"><strong>面談論点化</strong><p>良い点、気になる点、社長に確認したい質問へ変換。</p></div>
+        <div class="box"><strong>追加資料整理</strong><p>前期比較や月次推移に必要な資料を洗い出し。</p></div>
+      </div>
+    </section>
+
+    <section>
+      <h2>初回分析の方向性</h2>
+      <table>
+        <thead><tr><th>観点</th><th>見る内容</th><th>面談での使い道</th></tr></thead>
+        <tbody>
+          <tr><td>収益性</td><td>売上、粗利、営業利益、経常利益。</td><td>利益が残る構造か、価格転嫁や原価上昇の影響を確認。</td></tr>
+          <tr><td>製造原価</td><td>材料費、労務費、外注加工費、製造経費。</td><td>製造業として原価の重い部分を会話にする。</td></tr>
+          <tr><td>財務安全性</td><td>現預金、借入金、純資産、固定資産。</td><td>返済負担、資金繰り、財務余力を確認。</td></tr>
+          <tr><td>回収・支払</td><td>売掛金、受取手形、買掛金、支払手形。</td><td>回収サイトや手形依存を確認。</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section>
+      <h2>面談で確認したい質問例</h2>
+      <ul>
+        <li>製品売上と商品売上で、利益率や伸び方に違いはあるか。</li>
+        <li>材料費・外注加工費について、価格上昇や仕入先変更の影響はあるか。</li>
+        <li>借入金の今後1年間の返済予定と、金利上昇・借換予定はどうなっているか。</li>
+        <li>売掛金・受取手形の回収サイトは長期化していないか。</li>
+        <li>在庫や仕掛品に滞留・評価見直しが必要なものはないか。</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>追加で見たい資料</h2>
+      <table>
+        <thead><tr><th>資料</th><th>目的</th></tr></thead>
+        <tbody>
+          <tr><td>前期試算表または決算書</td><td>増減比較、前年差の説明。</td></tr>
+          <tr><td>月次推移表</td><td>季節変動、急増急減、異常月の把握。</td></tr>
+          <tr><td>借入金返済予定表</td><td>返済負担と資金繰り確認。</td></tr>
+          <tr><td>補助元帳</td><td>売掛金、受取手形、買掛金、支払手形の内訳確認。</td></tr>
+          <tr><td>主要取引先別売上・粗利</td><td>重点顧客、採算、依存度の確認。</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section>
+      <h2>今回の制約</h2>
+      <ul>
+        <li>前期比較・月次比較がないため、増減要因は断定しない。</li>
+        <li>試算表ベースのため、詳細は補助元帳や仕訳CSVで確認する。</li>
+        <li>AI分析は面談準備用の下書きで、最終判断は担当者が行う。</li>
+      </ul>
+    </section>
+  </main>
+</body>
+</html>
