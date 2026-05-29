@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>2026-05-29 蔵重先生MTG 議事メモ</title>
+  <style>
+    :root { --ink:#17202a; --muted:#5f6c7b; --line:#d9e1e8; --panel:#fff; --soft:#f4f7f9; --blue:#275f8f; --green:#246b59; --gold:#8a6818; --red:#9c3d35; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:-apple-system,BlinkMacSystemFont,"Hiragino Sans","Yu Gothic","YuGothic","Segoe UI",sans-serif; color:var(--ink); background:#eef3f6; line-height:1.7; }
+    main { max-width:1080px; margin:0 auto; padding:32px 20px 56px; }
+    a { color:var(--blue); font-weight:800; }
+    .back { display:inline-block; margin-bottom:18px; text-decoration:none; }
+    .hero, section { background:var(--panel); border:1px solid var(--line); border-radius:8px; box-shadow:0 18px 40px rgba(32,48,64,.08); }
+    .hero { padding:30px; border-left:8px solid var(--blue); }
+    .eyebrow { margin:0 0 10px; color:var(--blue); font-size:14px; font-weight:800; }
+    h1 { margin:0 0 14px; font-size:32px; line-height:1.25; letter-spacing:0; }
+    h2 { margin:0 0 14px; font-size:22px; letter-spacing:0; }
+    h3 { margin:0 0 8px; font-size:17px; letter-spacing:0; }
+    p { margin:0; }
+    .lead { color:var(--muted); max-width:820px; }
+    section { margin-top:18px; padding:24px; }
+    table { width:100%; border-collapse:collapse; overflow-wrap:anywhere; font-size:14px; }
+    th, td { padding:12px 10px; border-bottom:1px solid var(--line); text-align:left; vertical-align:top; }
+    th { background:var(--soft); color:var(--muted); font-weight:800; }
+    ul, ol { margin:8px 0 0; padding-left:20px; }
+    li + li { margin-top:4px; }
+    .grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:14px; }
+    .box { padding:16px; border:1px solid var(--line); border-radius:8px; background:var(--soft); }
+    .box strong { display:block; margin-bottom:6px; color:var(--blue); }
+    .material-list { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:10px; }
+    .material-list a { display:block; padding:12px 14px; border:1px solid var(--line); border-radius:8px; background:#fff; text-decoration:none; }
+    @media (max-width:760px){ main{padding:18px 12px 40px;} .hero,section{padding:20px;} h1{font-size:26px;} .grid,.material-list{grid-template-columns:1fr;} }
+  </style>
+</head>
+<body>
+  <main>
+    <a class="back" href="../index.html">← 打ち合わせハブに戻る</a>
+    <div class="hero">
+      <p class="eyebrow">Meeting Minutes</p>
+      <h1>2026-05-29 蔵重先生MTG 議事メモ</h1>
+      <p class="lead">Circleback通知メール「Notes for 蔵重先生MTG」をもとに、5月29日の打ち合わせ内容を整理した議事メモです。</p>
+    </div>
+
+    <section>
+      <h2>基本情報</h2>
+      <table>
+        <tbody>
+          <tr><th>日時</th><td>2026年5月29日（金）10:00〜11:00</td></tr>
+          <tr><th>形式</th><td>Zoom</td></tr>
+          <tr><th>会議名</th><td>蔵重先生MTG</td></tr>
+          <tr><th>出典</th><td>Circleback通知メール「Notes for 蔵重先生MTG」</td></tr>
+          <tr><th>主な参加者</th><td>蔵重先生、高橋 貢</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section>
+      <h2>サマリー</h2>
+      <p>前回までに準備した3つのPoC（仕訳チェック、PDFリネーム、財務分析）を高橋がデモし、蔵重先生と実務適用の方向性を確認した。</p>
+      <p>Codexを使えば、ローカルファイルの読み取り、PDF内容理解、Markdown作成、HTML出力、ファイル操作まで一連の実証が可能であることを確認。一方で、蔵重先生側ではGoogle Workspace上のGeminiを全員で利用しているため、Codex導入だけでなく、Google側エージェントで同等の運用が可能かを次回までに検証することになった。</p>
+    </section>
+
+    <section>
+      <h2>本日の合意・確認事項</h2>
+      <ol>
+        <li>仕訳チェック・PDFリネーム・財務分析の3つのPoCは、Codexで実証済み。</li>
+        <li>仕訳チェックと財務分析は「観点リストをMarkdownで事前定義 → AIが結果をMarkdownで出力」の形が有効。</li>
+        <li>PDFリネームは、Codexのローカルファイル操作と画像PDF読み取りで実現可能。</li>
+        <li>PDFリネームを自動運用する場合、スキャンフォルダ監視とNASへのコピー・振り分けが検討対象。</li>
+        <li>NASへの自動振り分けには、物件名と保存先フォルダを対応させるマスタが必要。</li>
+        <li>物件別フォルダが既にあるため、ファイル名は年月中心の命名でよい可能性がある。</li>
+        <li>Google側エージェント（Agentspace / Agentify / アンチグラビティ）での代替可否を高橋が検証する。</li>
+        <li>今回までの打ち合わせ・作業時間は累計約3時間として、今月分で請求予定。</li>
+      </ol>
+    </section>
+
+    <section>
+      <h2>議事内容</h2>
+      <div class="grid">
+        <div class="box"><strong>PDFリネームPoC</strong><p>CodexでPDFを画像として読み取り、ファイル名生成・コピーができることをデモ。自動化にはスキャンフォルダ監視と物件名マスタが必要。</p></div>
+        <div class="box"><strong>AIツール選定</strong><p>Codexはローカルファイル操作に強いが、蔵重先生側はGoogle Workspace/Gemini利用中。Google側エージェントでの代替可否を検証。</p></div>
+        <div class="box"><strong>仕訳チェックPoC</strong><p>takara.txtを使い、貸借一致、大口取引、税区分、給与複合仕訳、手形、振込手数料などの確認候補を抽出できることを確認。</p></div>
+        <div class="box"><strong>財務分析PoC</strong><p>試算表から一言サマリー、良い点、気になる点、社長への質問案を生成。HTML化するとブラウザで見やすく共有しやすい。</p></div>
+        <div class="box"><strong>給与計算</strong><p>社会保険料率改定などがあるため、固定プログラムよりAIに調べさせて計算する形が柔軟という認識で一致。</p></div>
+        <div class="box"><strong>次回MTG</strong><p>2026年6月3日（水）10:00。蔵重先生側でCodexまたはGoogle側エージェントを触り、詰まった点を共有。</p></div>
+      </div>
+    </section>
+
+    <section>
+      <h2>アクションアイテム</h2>
+      <table>
+        <thead>
+          <tr><th>#</th><th>担当</th><th>内容</th><th>期限・状態</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>1</td><td>高橋</td><td>今回MTGの成果物を共有する。議事メモ、PoC資料、関連Markdownを含める。</td><td>次回まで</td></tr>
+          <tr><td>2</td><td>高橋</td><td>Codexへの指示内容・作業手順をMarkdownにまとめて共有する。</td><td>次回まで</td></tr>
+          <tr><td>3</td><td>高橋</td><td>Google Agentify / Agentspace / アンチグラビティで、PDFリネームやファイル操作がCodex同様に実現可能か検証する。</td><td>次回まで</td></tr>
+          <tr><td>4</td><td>高橋</td><td>今月分（前回・今回の打ち合わせ含む約3時間）の請求書を送付する。</td><td>今月分</td></tr>
+          <tr><td>5</td><td>蔵重先生</td><td>CodexまたはGoogle側エージェントを触ってみて、うまくいかなかった点を次回共有する。</td><td>2026-06-03まで</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section>
+      <h2>成果Markdownリンク</h2>
+      <div class="material-list">
+        <a href="../materials/2026-05-29_meeting-minutes.md">本日の議事メモ Markdown</a>
+        <a href="../materials/2026-05-29_chat-summary.md">チャット対応まとめ Markdown</a>
+        <a href="../materials/takara_check-viewpoints_2026-05-29.md">仕訳チェック観点 Markdown</a>
+        <a href="../materials/takara_check-results_2026-05-29.md">仕訳チェック結果 Markdown</a>
+        <a href="../materials/pdf-rename-poc_initial.md">PDFリネーム実証 Markdown</a>
+        <a href="../materials/takara_financial-analysis_initial.md">財務分析メモ Markdown</a>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
