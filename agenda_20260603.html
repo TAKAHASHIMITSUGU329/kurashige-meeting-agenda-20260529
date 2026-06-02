@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>2026-06-03 蔵重税理士事務所様 MTGアジェンダ - AIバード</title>
+  <meta name="description" content="2026年6月3日開催の蔵重税理士事務所様とAIバード会計チームとの打合せアジェンダ。Google環境での自動化プロトタイプ構築合意と給与計算PoCの提案。">
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;800&family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --primary-grad: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+      --accent-grad: linear-gradient(135deg, #00c6ff 0%, #0072ff 100%);
+      --success-grad: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+      --dark-blue: #0f172a;
+      --slate-800: #1e293b;
+      --slate-700: #334155;
+      --slate-600: #475569;
+      --slate-400: #94a3b8;
+      --slate-100: #f1f5f9;
+      --slate-50: #f8fafc;
+      --white: #ffffff;
+      --glow-blue: rgba(0, 114, 255, 0.15);
+      
+      --font-outfit: 'Outfit', 'Noto Sans JP', sans-serif;
+      --font-noto: 'Noto Sans JP', sans-serif;
+      
+      --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: #0b0f19;
+      background-image: 
+        radial-gradient(at 0% 0%, rgba(30, 60, 114, 0.15) 0px, transparent 50%),
+        radial-gradient(at 100% 100%, rgba(0, 198, 255, 0.1) 0px, transparent 50%);
+      color: var(--slate-100);
+      font-family: var(--font-noto);
+      line-height: 1.6;
+      min-height: 100vh;
+      padding-bottom: 80px;
+    }
+
+    /* アニメーション定義 */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes pulseGlow {
+      0% { box-shadow: 0 0 0 0 rgba(0, 198, 255, 0.4); }
+      70% { box-shadow: 0 0 0 10px rgba(0, 198, 255, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(0, 198, 255, 0); }
+    }
+
+    .animate-fade-in {
+      animation: fadeIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+
+    /* コンテナ */
+    .container {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 40px 20px;
+    }
+
+    /* ナビゲーション */
+    .nav-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 30px;
+    }
+
+    .btn-action {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 30px;
+      color: var(--slate-100);
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      font-family: var(--font-outfit);
+      font-size: 0.9rem;
+      font-weight: 600;
+      gap: 8px;
+      padding: 10px 20px;
+      text-decoration: none;
+      transition: var(--transition);
+    }
+
+    .btn-action:hover {
+      background: rgba(255, 255, 255, 0.1);
+      border-color: rgba(255, 255, 255, 0.2);
+      transform: translateY(-2px);
+    }
+
+    .btn-primary {
+      background: var(--accent-grad);
+      border: none;
+      box-shadow: 0 4px 15px var(--glow-blue);
+    }
+
+    .btn-primary:hover {
+      background: linear-gradient(135deg, #00d2ff 0%, #0080ff 100%);
+      box-shadow: 0 6px 20px rgba(0, 114, 255, 0.3);
+    }
+
+    /* メインヘッダーカード */
+    .header-card {
+      background: rgba(30, 41, 59, 0.4);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 24px;
+      padding: 40px;
+      margin-bottom: 40px;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    }
+
+    .header-card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 6px;
+      background: var(--accent-grad);
+    }
+
+    .badge {
+      background: rgba(0, 198, 255, 0.15);
+      border: 1px solid rgba(0, 198, 255, 0.3);
+      border-radius: 999px;
+      color: #00c6ff;
+      display: inline-block;
+      font-family: var(--font-outfit);
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      margin-bottom: 20px;
+      padding: 4px 16px;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      font-family: var(--font-noto);
+      font-size: 2.2rem;
+      font-weight: 900;
+      line-height: 1.3;
+      margin-bottom: 20px;
+      background: linear-gradient(120deg, #ffffff 30%, #a5f3fc 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .lead-text {
+      color: var(--slate-400);
+      font-size: 1.1rem;
+      max-width: 800px;
+      margin-bottom: 30px;
+    }
+
+    /* 会計情報・メタデータグリッド */
+    .meta-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      padding-top: 30px;
+    }
+
+    .meta-item {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .meta-label {
+      color: var(--slate-400);
+      font-size: 0.85rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .meta-value {
+      font-size: 1.05rem;
+      font-weight: 600;
+    }
+
+    /* セクション */
+    .section-title {
+      font-family: var(--font-noto);
+      font-size: 1.6rem;
+      font-weight: 800;
+      margin-bottom: 25px;
+      padding-left: 14px;
+      position: relative;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .section-title::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 15%;
+      height: 70%;
+      width: 4px;
+      background: var(--accent-grad);
+      border-radius: 2px;
+    }
+
+    /* レイアウト */
+    .meeting-layout {
+      display: grid;
+      grid-template-columns: 1.6fr 1fr;
+      gap: 40px;
+    }
+
+    @media (max-width: 900px) {
+      .meeting-layout {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* カード・ボックス */
+    .panel-card {
+      background: rgba(30, 41, 59, 0.25);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 20px;
+      padding: 30px;
+      margin-bottom: 30px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+      transition: var(--transition);
+    }
+
+    .panel-card:hover {
+      border-color: rgba(255, 255, 255, 0.1);
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+    }
+
+    /* タイムライン */
+    .timeline {
+      position: relative;
+      padding-left: 20px;
+      border-left: 2px solid rgba(255, 255, 255, 0.08);
+      margin-left: 10px;
+    }
+
+    .timeline-node {
+      position: relative;
+      margin-bottom: 35px;
+    }
+
+    .timeline-node:last-child {
+      margin-bottom: 0;
+    }
+
+    .timeline-dot {
+      position: absolute;
+      left: -27px;
+      top: 6px;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: #0b0f19;
+      border: 2px solid #0072ff;
+      box-shadow: 0 0 10px #0072ff;
+      transition: var(--transition);
+    }
+
+    .timeline-node:hover .timeline-dot {
+      background: #00c6ff;
+      transform: scale(1.3);
+    }
+
+    .timeline-header {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      margin-bottom: 12px;
+      flex-wrap: wrap;
+    }
+
+    .timeline-time {
+      font-family: var(--font-outfit);
+      font-size: 1.05rem;
+      font-weight: 800;
+      color: #00c6ff;
+      background: rgba(0, 198, 255, 0.08);
+      padding: 2px 10px;
+      border-radius: 6px;
+    }
+
+    .timeline-title {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--slate-100);
+    }
+
+    .timeline-body {
+      color: var(--slate-400);
+      font-size: 0.95rem;
+      padding-left: 5px;
+    }
+
+    .timeline-body ul {
+      margin-top: 8px;
+      padding-left: 18px;
+    }
+
+    .timeline-body li {
+      margin-bottom: 4px;
+    }
+
+    /* チェックリスト */
+    .checklist {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    .check-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 12px 16px;
+      border-radius: 12px;
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid rgba(255, 255, 255, 0.03);
+      cursor: pointer;
+      user-select: none;
+      transition: var(--transition);
+    }
+
+    .check-item:hover {
+      background: rgba(255, 255, 255, 0.04);
+      border-color: rgba(255, 255, 255, 0.08);
+    }
+
+    .check-input {
+      appearance: none;
+      -webkit-appearance: none;
+      width: 20px;
+      height: 20px;
+      border: 2px solid rgba(255, 255, 255, 0.2);
+      border-radius: 6px;
+      outline: none;
+      cursor: pointer;
+      position: relative;
+      transition: var(--transition);
+      margin-top: 2px;
+      flex-shrink: 0;
+    }
+
+    .check-input:checked {
+      background: var(--accent-grad);
+      border-color: transparent;
+      animation: pulseGlow 0.4s ease-out;
+    }
+
+    .check-input:checked::before {
+      content: "✓";
+      color: white;
+      position: absolute;
+      top: -2px;
+      left: 3px;
+      font-size: 14px;
+      font-weight: 900;
+    }
+
+    .check-text {
+      font-size: 0.95rem;
+      font-weight: 500;
+      color: var(--slate-100);
+      transition: var(--transition);
+    }
+
+    .check-input:checked + .check-text {
+      color: var(--slate-400);
+      text-decoration: line-through rgba(255, 255, 255, 0.2);
+    }
+
+    .check-sub {
+      display: block;
+      font-size: 0.8rem;
+      color: var(--slate-400);
+      margin-top: 4px;
+    }
+
+    /* 優先度バッジ */
+    .priority-badge {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 4px;
+      color: #fff;
+    }
+    .p-high { background: #e53e3e; }
+    .p-mid { background: #dd6b20; }
+    .p-low { background: #38a169; }
+
+    /* テーブルデザイン */
+    .table-container {
+      overflow-x: auto;
+      margin-top: 20px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.9rem;
+      text-align: left;
+    }
+
+    th, td {
+      padding: 14px 16px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    th {
+      color: var(--slate-400);
+      font-weight: 700;
+      background: rgba(255, 255, 255, 0.02);
+    }
+
+    td {
+      color: var(--slate-100);
+    }
+
+    tr:hover td {
+      background: rgba(255, 255, 255, 0.01);
+    }
+
+    /* フッター */
+    footer {
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+      margin-top: 60px;
+      padding-top: 30px;
+      text-align: center;
+      color: var(--slate-400);
+      font-size: 0.85rem;
+      font-family: var(--font-outfit);
+    }
+
+    .footer-brand {
+      font-weight: 800;
+      background: var(--accent-grad);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 8px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container animate-fade-in">
+    
+    <!-- ナビゲーションバー -->
+    <header class="nav-header">
+      <a href="index.html" class="btn-action" id="nav-home-btn">
+        <span>← Meeting Hubへ戻る</span>
+      </a>
+      <div style="display: flex; gap: 10px;">
+        <button onclick="window.print()" class="btn-action" id="print-agenda-btn">
+          <span>🖨 印刷・PDF保存</span>
+        </button>
+        <a href="antigravity_evidence.html" class="btn-action btn-primary" id="nav-evidence-btn">
+          <span>🔍 再現検証結果をみる</span>
+        </a>
+      </div>
+    </header>
+
+    <!-- メインヘッダーカード -->
+    <div class="header-card">
+      <span class="badge">Meeting Agenda</span>
+      <h1 id="meeting-title">蔵重税理士事務所様 AI活用ワークフロー打合せ</h1>
+      <p class="lead-text">Googleエージェント（Antigravity）によるPoC検証結果のレビューと、Google環境下での本実装プロトタイプ開発への移行合意を目的とするミーティングアジェンダ。</p>
+      
+      <div class="meta-grid">
+        <div class="meta-item">
+          <span class="meta-label">Date & Time</span>
+          <span class="meta-value">2026年6月3日（水） 10:00 - 11:00</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-label">Format</span>
+          <span class="meta-value">Zoom オンライン</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-label">Attendees</span>
+          <span class="meta-value">蔵重 篤 先生 / 高橋 貢 (AIバード)</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- コンテンツレイアウト -->
+    <main class="meeting-layout">
+      
+      <!-- 左コラム：アジェンダタイムライン -->
+      <section>
+        <h2 class="section-title">タイムライン（60分）</h2>
+        <div class="panel-card">
+          <div class="timeline">
+            
+            <!-- Node 1 -->
+            <div class="timeline-node" id="node-1">
+              <div class="timeline-dot"></div>
+              <div class="timeline-header">
+                <span class="timeline-time">10:00 - 10:05</span>
+                <span class="timeline-title">導入・本日のアジェンダ確認</span>
+              </div>
+              <div class="timeline-body">
+                <p>本日のゴール確認、および前回合意事項と宿題の進捗確認を行います。</p>
+              </div>
+            </div>
+
+            <!-- Node 2 -->
+            <div class="timeline-node" id="node-2">
+              <div class="timeline-dot"></div>
+              <div class="timeline-header">
+                <span class="timeline-time">10:05 - 10:25</span>
+                <span class="timeline-title">Googleエージェント（Antigravity）検証結果の確認</span>
+              </div>
+              <div class="timeline-body">
+                <p>Google環境で全員で使えるように、私（Antigravity）が実証データを基に再現した結果をデモし、精度と代替可能性を確認します。</p>
+                <ul>
+                  <li><strong>仕訳チェック</strong>: 280行のCSV（takara.txt）から手形・給与複合・車検などの指摘レポートの確認。</li>
+                  <li><strong>PDFリネーム</strong>: 3つの画像PDFから年月・物件・金額を100%正確に読み取り、リネームコピーした結果。</li>
+                  <li><strong>財務分析</strong>: 試算表Excelから財務指標をパース・自動計算し、質問案を作成した結果。</li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Node 3 -->
+            <div class="timeline-node" id="node-3">
+              <div class="timeline-dot"></div>
+              <div class="timeline-header">
+                <span class="timeline-time">10:25 - 10:40</span>
+                <span class="timeline-title">Google環境向け自動化プロトタイプ設計案の検討</span>
+              </div>
+              <div class="timeline-body">
+                <p>追加のライセンス費用をかけず、共有ドライブとGoogle Apps Script (GAS)を組み合わせた、全員で自走運用できるシステム構成案を提示します。</p>
+                <ul>
+                  <li>Google Drive上の「スキャン直後」フォルダにPDFが投入されると、自動的にリネームされて「物件別フォルダ」へ振り分けられる仕組み。</li>
+                  <li>「仕訳チェック待ち」フォルダにCSVが置かれると、AIが自動解析してチェック結果をGoogleドキュメントとして作成し、担当者へChatで通知する仕組み。</li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Node 4 -->
+            <div class="timeline-node" id="node-4">
+              <div class="timeline-dot"></div>
+              <div class="timeline-header">
+                <span class="timeline-time">10:40 - 10:50</span>
+                <span class="timeline-title">【新規提案】給与計算のAI自律計算PoCのご説明</span>
+              </div>
+              <div class="timeline-body">
+                <p>社会保険料率の改定のたびに発生する固定システム開発費をゼロにする、新しいAI給与計算モデルを提案します。</p>
+                <ul>
+                  <li>AIに最新の「社会保険料率表PDF」を直接読み込ませ、年齢・都道府県から自律的に計算させるアプローチ。</li>
+                  <li>計算の根拠・適用料率が明記されるため、担当者のレビューも極めて容易になります。数名のダミーデータを用いたミニPoC実施の承認を狙います。</li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Node 5 -->
+            <div class="timeline-node" id="node-5">
+              <div class="timeline-dot"></div>
+              <div class="timeline-header">
+                <span class="timeline-time">10:50 - 10:55</span>
+                <span class="timeline-title">蔵重先生からのAI試用フィードバックの回収</span>
+              </div>
+              <div class="timeline-body">
+                <p>宿題となっていた、CodexまたはGoogle環境でのAI試用でうまくいかなかった点や改善の希望を伺います。</p>
+              </div>
+            </div>
+
+            <!-- Node 6 -->
+            <div class="timeline-node" id="node-6">
+              <div class="timeline-dot"></div>
+              <div class="timeline-header">
+                <span class="timeline-time">10:55 - 11:00</span>
+                <span class="timeline-title">ネクストアクションと時間枠配分の決定</span>
+              </div>
+              <div class="timeline-body">
+                <p>合意されたプロトタイプ実装に向けたタスク整理、必要データの提供依頼、次回スケジュールの決定。</p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- 右コラム：意思決定事項とインタラクティブチェック -->
+      <aside aria-label="会議の意思決定と進捗">
+        <h2 class="section-title">本日決定したい論点</h2>
+        <div class="panel-card" style="margin-bottom: 25px;">
+          <div class="checklist">
+            
+            <label class="check-item" id="item-label-1">
+              <input type="checkbox" class="check-input" id="decide-1">
+              <div class="check-text">
+                プロトタイプ構築フェーズへの移行合意
+                <span class="priority-badge p-high">最優先</span>
+                <span class="check-sub">GAS連携（リネーム＆移動・仕訳チェック）の構築（約10〜15h）</span>
+              </div>
+            </label>
+
+            <label class="check-item" id="item-label-2">
+              <input type="checkbox" class="check-input" id="decide-2">
+              <div class="check-text">
+                給与計算自律化ミニPoCの実施承認
+                <span class="priority-badge p-mid">重要</span>
+                <span class="check-sub">保険料率自動パース＆計算モデルの検証着手</span>
+              </div>
+            </label>
+
+            <label class="check-item" id="item-label-3">
+              <input type="checkbox" class="check-input" id="decide-3">
+              <div class="check-text">
+                AIの出力フォーマットの希望決定
+                <span class="priority-badge p-low">確認</span>
+                <span class="check-sub">Google ドキュメント / スプレッドシート / PDF等の選定</span>
+              </div>
+            </label>
+
+          </div>
+        </div>
+
+        <h2 class="section-title">次回に向けた宿題・準備</h2>
+        <div class="panel-card">
+          <div class="table-container">
+            <table>
+              <thead>
+                <tr>
+                  <th>担当</th>
+                  <th>内容</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="font-weight: 700; color: #00c6ff;">高橋</td>
+                  <td>本日の合意内容に沿って、GASプロトタイプ構築及び給与計算PoCの開始</td>
+                </tr>
+                <tr>
+                  <td style="font-weight: 700; color: #38ef7d;">蔵重先生</td>
+                  <td>物件マスタ用スプレッドシートの素案、「？」付きの要確認仕訳サンプルの提供</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </aside>
+
+    </main>
+
+    <!-- フッター -->
+    <footer>
+      <p class="footer-brand">AI Bird Accounting Automation Project</p>
+      <p>© 2026 Kurashige Tax Accountant Office & AI Bird. All rights reserved.</p>
+    </footer>
+
+  </div>
+
+</body>
+</html>
