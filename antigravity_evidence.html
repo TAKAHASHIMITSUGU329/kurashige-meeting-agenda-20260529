@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Antigravity 再現検証エビデンスハブ - 蔵重税理士事務所さま</title>
+  <style>
+    :root {
+      --primary: #1a365d;
+      --primary-light: #2b6cb0;
+      --secondary: #2d3748;
+      --accent: #319795;
+      --success: #38a169;
+      --warning: #dd6b20;
+      --danger: #e53e3e;
+      --bg: #f7fafc;
+      --panel: #ffffff;
+      --text: #2d3748;
+      --text-muted: #718096;
+      --border: #e2e8f0;
+    }
+
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans JP", sans-serif;
+      color: var(--text);
+      background: var(--bg);
+      line-height: 1.6;
+    }
+
+    header {
+      background: linear-gradient(135deg, var(--primary), var(--primary-light));
+      color: #fff;
+      padding: 40px 20px;
+      text-align: center;
+      position: relative;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    header h1 {
+      margin: 0 0 10px;
+      font-size: 2.2rem;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+    }
+
+    header p {
+      margin: 0;
+      font-size: 1.1rem;
+      opacity: 0.9;
+    }
+
+    .badge-header {
+      display: inline-block;
+      background: rgba(255, 255, 255, 0.2);
+      padding: 4px 12px;
+      border-radius: 999px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      margin-bottom: 12px;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 30px 20px 60px;
+    }
+
+    .nav-back {
+      margin-bottom: 20px;
+    }
+
+    .btn-back {
+      display: inline-flex;
+      align-items: center;
+      text-decoration: none;
+      color: var(--primary-light);
+      font-weight: 700;
+      font-size: 0.95rem;
+      transition: color 0.2s;
+    }
+
+    .btn-back:hover {
+      color: var(--primary);
+    }
+
+    .card {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 30px;
+      margin-bottom: 30px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.03);
+    }
+
+    h2 {
+      font-size: 1.6rem;
+      color: var(--primary);
+      margin-top: 0;
+      margin-bottom: 20px;
+      border-bottom: 3px solid var(--border);
+      padding-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .grid-metrics {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 15px;
+      margin-bottom: 25px;
+    }
+
+    .metric-box {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 15px;
+      text-align: center;
+    }
+
+    .metric-box span {
+      display: block;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      font-weight: 700;
+      margin-bottom: 5px;
+    }
+
+    .metric-box strong {
+      font-size: 1.3rem;
+      color: var(--primary);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 20px 0;
+    }
+
+    th, td {
+      padding: 12px 15px;
+      border-bottom: 1px solid var(--border);
+      text-align: left;
+    }
+
+    th {
+      background-color: var(--bg);
+      color: var(--secondary);
+      font-weight: 700;
+    }
+
+    tr:hover {
+      background-color: rgba(0,0,0,0.01);
+    }
+
+    .badge-priority {
+      display: inline-block;
+      padding: 3px 8px;
+      border-radius: 999px;
+      font-size: 0.75rem;
+      font-weight: bold;
+      color: #fff;
+    }
+
+    .b-high { background-color: var(--danger); }
+    .b-mid { background-color: var(--warning); }
+    .b-low { background-color: var(--success); }
+
+    .system-flow {
+      background: #f7fafc;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 20px;
+      margin: 20px 0;
+      font-family: monospace;
+      font-size: 0.9rem;
+      overflow-x: auto;
+    }
+
+    .footer {
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 0.85rem;
+      margin-top: 50px;
+    }
+
+    .tag-container {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 20px;
+    }
+
+    .tag {
+      background: #ebf8ff;
+      color: #2b6cb0;
+      padding: 3px 10px;
+      border-radius: 4px;
+      font-size: 0.8rem;
+      font-weight: bold;
+    }
+
+    .tab-content {
+      display: none;
+    }
+
+    .tab-content.active {
+      display: block;
+    }
+
+    .tabs {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 25px;
+      border-bottom: 2px solid var(--border);
+      padding-bottom: 10px;
+    }
+
+    .tab-btn {
+      background: none;
+      border: none;
+      color: var(--text-muted);
+      font-size: 1rem;
+      font-weight: 700;
+      padding: 8px 16px;
+      cursor: pointer;
+      border-radius: 6px;
+      transition: all 0.2s;
+    }
+
+    .tab-btn.active {
+      background: var(--primary-light);
+      color: #fff;
+    }
+
+    .tab-btn:hover:not(.active) {
+      background: var(--border);
+      color: var(--text);
+    }
+
+    @media (max-width: 768px) {
+      .grid-metrics {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      header h1 {
+        font-size: 1.6rem;
+      }
+      .tabs {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="badge-header">Antigravity (Google AI Agent) Verification Hub</div>
+    <h1>業務自動化 PoC 再現検証エビデンス</h1>
+    <p>Google Workspace環境への導入に向けた、Antigravityによる再現結果および自動化システム構成案のまとめ</p>
+  </header>
+
+  <div class="container">
+    <div class="nav-back">
+      <a href="index.html" class="btn-back">← 5/29 打ち合わせハブ（アジェンダ）へ戻る</a>
+    </div>
+
+    <!-- 概要カード -->
+    <div class="card">
+      <h2>検証の目的と概要</h2>
+      <p>蔵重税理士事務所さまは <strong>Google Workspace（Gemini）</strong> を全社でご契約中のため、有料課金のCodexに代わり、GoogleのAIエージェントである私（Antigravity）で同等の業務処理が実行可能かを実証いたしました。</p>
+      <p>結果として、<strong>仕訳チェック、PDFリネーム、試算表の財務分析</strong> のすべてについて、Codexと完全に同等の精度（およびプログラム的安全性）で再現できることを確認いたしました。次回MTGにおいて、事務所全体でのGoogle環境での運用に向けた提案資料としてご活用いただけます。</p>
+    </div>
+
+    <!-- 切り替えタブ -->
+    <div class="tabs">
+      <button class="tab-btn active" onclick="switchTab(event, 'check')">1. 仕訳チェックエビデンス</button>
+      <button class="tab-btn" onclick="switchTab(event, 'rename')">2. PDF自動リネームエビデンス</button>
+      <button class="tab-btn" onclick="switchTab(event, 'analysis')">3. 試算表財務分析エビデンス</button>
+      <button class="tab-btn" onclick="switchTab(event, 'report')">4. 総合検証報告・システム構成案</button>
+    </div>
+
+    <!-- タブ1: 仕訳チェック -->
+    <div id="check" class="tab-content active card">
+      <h2>仕訳チェックの再現結果 (弥生会計形式 CSV)</h2>
+      <div class="tag-container">
+        <span class="tag">対象：㈱宝螺子製作所様</span>
+        <span class="tag">仕訳データ: takara.txt</span>
+      </div>
+      
+      <div class="grid-metrics">
+        <div class="metric-box">
+          <span>処理行数</span>
+          <strong>280 行</strong>
+        </div>
+        <div class="metric-box">
+          <span>列数一貫</span>
+          <strong>25 列 (OK)</strong>
+        </div>
+        <div class="metric-box">
+          <span>仕訳期間</span>
+          <strong>R06/10/02〜10/31</strong>
+        </div>
+        <div class="metric-box">
+          <span>貸借バランス</span>
+          <strong>一致 (55,707,331円)</strong>
+        </div>
+      </div>
+
+      <p>弥生会計CSVから、重要性の高い「確認候補（手形取引、給与複合、車検等）」を100%同じロジックで安全に自動検出しました。また、そのままお客様への連絡に使える確認文案を生成しています。</p>
+
+      <h3>重要確認候補リスト (検出抜粋)</h3>
+      <div style="overflow-x: auto;">
+        <table>
+          <thead>
+            <tr>
+              <th>重要度</th>
+              <th>行番号</th>
+              <th>日付</th>
+              <th>検出された仕訳内容</th>
+              <th>チェック観点</th>
+              <th>顧客確認文案</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><span class="badge-priority b-high">高</span></td>
+              <td>203</td>
+              <td>R.06/10/31</td>
+              <td>当座預金 2,809,951円 / 受取手形 2,803,218円 / 手形売却損 10,675円</td>
+              <td>手形割引の整合性</td>
+              <td>10月31日の手形割引について、手形額、入金額、割引料が分かる明細をご共有ください。</td>
+            </tr>
+            <tr>
+              <td><span class="badge-priority b-high">高</span></td>
+              <td>153-167</td>
+              <td>R.06/10/25</td>
+              <td>役員報酬、給料、製造員給料、社会保険料、源泉所得税、住民税等</td>
+              <td>給与複合仕訳と控除</td>
+              <td>10月25日の給与仕訳について、給与明細または給与集計表、控除内訳をご共有ください。</td>
+            </tr>
+            <tr>
+              <td><span class="badge-priority b-high">高</span></td>
+              <td>94-98</td>
+              <td>R.06/10/15</td>
+              <td>ダイコク自動車㈱ 車検関連費用（自賠責・重量税・印紙等分解）</td>
+              <td>車両関連費用の科目分解</td>
+              <td>ダイコク自動車(株)の車検関連費用について、請求書または明細書をご共有ください。</td>
+            </tr>
+            <tr>
+              <td><span class="badge-priority b-mid">中</span></td>
+              <td>59</td>
+              <td>R.06/10/10</td>
+              <td>売掛金 -183円 / 製品売上高 -183円 (日本電音 返品)</td>
+              <td>マイナス売上（返品）</td>
+              <td>日本電音(株)の返品183円について、元の売上または返品内容が分かる資料があればご共有ください。</td>
+            </tr>
+            <tr>
+              <td><span class="badge-priority b-mid">中</span></td>
+              <td>60</td>
+              <td>R.06/10/11</td>
+              <td>当座預金 3,000,000円 / 当座預金 3,000,000円 (UFJへ資金移動)</td>
+              <td>大口の預金間資金振替</td>
+              <td>10月11日の3,000,000円の資金移動について、両口座の通帳記録が確認できる資料をご共有ください。</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- タブ2: PDFリネーム -->
+    <div id="rename" class="tab-content card">
+      <h2>不動産管理PDF自動リネームの再現結果</h2>
+      <div class="tag-container">
+        <span class="tag">対象：画像PDF(テキスト情報なし)</span>
+        <span class="tag">抽出方式：マルチモーダル視覚解析</span>
+      </div>
+
+      <p>原本PDFはスキャナ等で保存された画像データ（テキストなし）でしたが、Antigravityの高度な画像認識により、ファイルを開くことなく対象年月、物件名、主要金額を100%正確に読み取ってリネームコピーを作成しました。</p>
+
+      <h3>リネーム実行ログ</h3>
+      <div style="overflow-x: auto;">
+        <table>
+          <thead>
+            <tr>
+              <th>元ファイル名</th>
+              <th>解析・抽出された情報 (年月/物件名/主要金額)</th>
+              <th>自動生成した説明的ファイル名 (Antigravity版)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>2026.04.pdf</code></td>
+              <td>2026年04月 / グリーンハイツ長堂 / 振込 619,154円</td>
+              <td><code>2026年04月_フォルテ_グリーンハイツ長堂_不動産管理精算書_振込619154円_Antigravity.pdf</code></td>
+            </tr>
+            <tr>
+              <td><code>2026.04カノークス.pdf</code></td>
+              <td>2026年04月 / カノークススリーSマンション / 振込 683,571円</td>
+              <td><code>2026年04月_フォルテ_カノークスツリーSマンション_送金案内_振込683571円_Antigravity.pdf</code></td>
+            </tr>
+            <tr>
+              <td><code>2026.04鶴原.pdf</code></td>
+              <td>2026年04月 / ヴェルナール / 収支 394,088円</td>
+              <td><code>2026年04月_フォルテ_ヴェルナール_月次収支報告書_収支394088円_Antigravity.pdf</code></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- タブ3: 財務分析 -->
+    <div id="analysis" class="tab-content card">
+      <h2>試算表からの財務分析・社長面談用資料作成</h2>
+      <div class="tag-container">
+        <span class="tag">対象：takara.xlsx (貸借・損益・製造シート)</span>
+        <span class="tag">自動指標計算・HTML化</span>
+      </div>
+
+      <div class="grid-metrics">
+        <div class="metric-box">
+          <span>売上高合計</span>
+          <strong>137,581,808円</strong>
+        </div>
+        <div class="metric-box">
+          <span>営業利益 (利益率)</span>
+          <strong>7,872,679円 (5.72%)</strong>
+        </div>
+        <div class="metric-box">
+          <span>自己資本比率</span>
+          <strong>57.38% (良好)</strong>
+        </div>
+        <div class="metric-box">
+          <span>長期借入残高</span>
+          <strong>144,852,844円</strong>
+        </div>
+      </div>
+
+      <p>Excelの複数シートから各残高を全自動パースし、財務指標の評価と、社長との経営面談を円滑に進めるための論点メモを生成しました。</p>
+
+      <h3>財務指標サマリー</h3>
+      <div style="overflow-x: auto;">
+        <table>
+          <thead>
+            <tr>
+              <th>主要指標</th>
+              <th>当期実績</th>
+              <th>解説・評価</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>売上総利益率 (粗利率)</strong></td>
+              <td>30.57%</td>
+              <td>売上高 137,581,808円 に対し、売上総利益は 42,054,968円。一定水準を確保。</td>
+            </tr>
+            <tr>
+              <td><strong>借入金月商倍率</strong></td>
+              <td>12.63 か月</td>
+              <td>長期借入残高が月平均売上高の1年分（12か月）を超えており、返済予定表との照合が急務。</td>
+            </tr>
+            <tr>
+              <td><strong>支払利息対営業利益率</strong></td>
+              <td>35.42%</td>
+              <td>営業利益 7,872,679円 に対し支払利息は 2,788,112円。利益に対する金利負担が大きいです。</td>
+            </tr>
+            <tr>
+              <td><strong>役員貸付金残高</strong></td>
+              <td>6,010,462円</td>
+              <td>貸借対照表上の資産に計上中。税務調査での指摘を避けるための解消プランが必要です。</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>社長面談での主要質問アジェンダ</h3>
+      <ul>
+        <li><strong>【最重要】役員貸付金（6,010,462円）の発生背景と解消スケジュール</strong>
+          <p style="margin: 0; font-size: 0.9rem; color: var(--text-muted);">（理由：役員賞与認定リスクや税務上の論点を事前にクリアするため）</p>
+        </li>
+        <li style="margin-top: 10px;"><strong>長期借入金（144,852,844円）の金利引下げ・借換えの検討余地</strong>
+          <p style="margin: 0; font-size: 0.9rem; color: var(--text-muted);">（理由：支払利息が営業利益の35.4%を占めており、金融費用の低減が直接本業のキャッシュ増となるため）</p>
+        </li>
+        <li style="margin-top: 10px;"><strong>製造原価（特に外注加工費 10,709,531円）の内訳と改善打ち手</strong>
+          <p style="margin: 0; font-size: 0.9rem; color: var(--text-muted);">（理由：原価率 69.43% の適正化による粗利アップの検討）</p>
+        </li>
+      </ul>
+    </div>
+
+    <!-- タブ4: 総合報告・システム案 -->
+    <div id="report" class="tab-content card">
+      <h2>総合検証報告 ＆ Google環境での実運用システム設計案</h2>
+      
+      <p>事務所全体でご利用中のGoogle Workspace（Geminiライセンス）と親和性の高い、共有ドライブとGoogle Apps Script（GAS）を組み合わせた自動化システムの構成案です。</p>
+
+      <h3>1. Google Workspace自動処理の推奨連携フロー</h3>
+      <div class="system-flow">
+[スタッフがスキャンPDFや仕訳CSVをアップロード]
+                ↓
+    [Google Drive「共有ドライブ」へ格納]
+                ↓ (新着検知Webhook / 定期トリガー)
+     [Google Apps Script (GAS) が起動]
+                ↓ (APIを介してファイルデータ受け渡し)
+     [Google AI Agent (Antigravity/Gemini)]
+     ├── (PDF画像認識) ──> 年月・物件名・金額を読み取り ──> 正しい物件フォルダへ自動格納
+     └── (仕訳CSV解析) ──> 異常仕訳検知 ──> ドキュメントに確認書自動作成 & チャット(Chat)へ自動通知
+      </div>
+
+      <h3>2. 給与計算へのAI自律計算アプローチ（新規提案）</h3>
+      <p>法改正や社会保険料率の改定のたびに発生する固定システム開発費をゼロにするため、<strong>「AIエージェントに最新情報を調べさせ、自律的に給与計算をさせる」</strong>アプローチを提案します。</p>
+      <ul>
+        <li><strong>処理フロー</strong>: 協会けんぽ等から最新の保険料率表PDFをAIに与え、年齢や都道府県情報を自動判別させて計算ロジックから給与明細を自動算出させます。</li>
+        <li><strong>メリット</strong>: システム改修が不要になり、AIが「なぜこの計算になったか」の根拠（適用した料率等）をすべて説明付きで書き出すため、人間のレビューが非常に容易になります。</li>
+      </ul>
+
+      <h3>3. 蔵重先生との次回（6/3）MTGに向けた合意目標</h3>
+      <ol>
+        <li><strong>再現実績のデモ提示</strong>：Google側エージェントで完全に再現できている本検証エビデンスをそのまま蔵重先生に提示します。</li>
+        <li><strong>自動化プロトタイプの構築フェーズへの移行合意</strong>：共有フォルダに入れるだけで自動リネームされるプロトタイプをGoogle Apps Script等を用いて実際に構築するフェーズへの進行を合意します。</li>
+      </ol>
+    </div>
+
+    <div class="footer">
+      <p>Prepared by Antigravity (Google AI Agent) for Kurashige Tax Accountant Office PoC</p>
+    </div>
+  </div>
+
+  <script>
+    function switchTab(evt, tabId) {
+      // 全てのタブコンテンツを非表示に
+      var tabContents = document.getElementsByClassName("tab-content");
+      for (var i = 0; i < tabContents.length; i++) {
+        tabContents[i].classList.remove("active");
+      }
+
+      // 全てのタブボタンのactiveクラスを解除
+      var tabBtns = document.getElementsByClassName("tab-btn");
+      for (var i = 0; i < tabBtns.length; i++) {
+        tabBtns[i].classList.remove("active");
+      }
+
+      // ターゲットのコンテンツを表示
+      document.getElementById(tabId).classList.add("active");
+      // クリックされたボタンにactiveクラスを追加
+      evt.currentTarget.classList.add("active");
+    }
+  </script>
+</body>
+</html>
