@@ -330,12 +330,12 @@
     <header class="hero">
       <div class="eyebrow">Circleback Based Meeting Notes</div>
       <h1>2026-06-03 蔵重先生MTG スクリプト・議事メモ</h1>
-      <p class="lead">Circleback通知メール「Notes for 蔵重先生MTG」とZoom要約を照合し、打ち合わせで話した流れを再現しやすいスクリプト、議事メモ、決定事項、アクションアイテムとして整理しました。</p>
+      <p class="lead">Circleback通知メール「Notes for 蔵重先生MTG」、Zoom要約、Circleback全文トランスクリプトを照合し、打ち合わせで話した流れ、議事メモ、決定事項、アクションアイテムとして整理しました。</p>
       <div class="meta">
         <div><span>日時</span>2026年6月3日（水）10:00-11:00 JST</div>
         <div><span>形式</span>Zoom</div>
         <div><span>参加者</span>蔵重先生、高橋 貢</div>
-        <div><span>出典</span>Circleback通知、Zoom AI要約</div>
+        <div><span>出典</span>Circleback通知・全文Transcript、Zoom AI要約</div>
       </div>
     </header>
 
@@ -354,6 +354,10 @@
           <div class="summary-card">
             <strong>次回</strong>
             2026年6月12日（金）13:00にZoomで実施。蔵重先生側から、AIに取り組んでほしい宿題・要望を高橋へ送付。
+          </div>
+          <div class="summary-card">
+            <strong>AIバード稼働</strong>
+            今回の実証は高橋側で約1時間、当日MTG分も稼働計上予定。今月枠は残り約5時間あり、次回までの宿題・追加実証に充てる整理。
           </div>
         </div>
       </section>
@@ -392,9 +396,9 @@
         </div>
 
         <div class="script-item">
-          <h3><span class="time">10:55-11:00</span>次回までの宿題</h3>
-          <p>次回MTGを2026年6月12日（金）13:00に設定。蔵重先生側から宿題・要望を高橋へ送り、高橋が事前実証する進め方で合意。</p>
-          <div class="say">次回は6月12日13時で進めましょう。それまでに、事務所側でAIにやらせたいことや困っていることを送っていただければ、こちらで事前に試して当日共有します。</div>
+          <h3><span class="time">10:55-11:00</span>AIバード稼働・次回までの宿題</h3>
+          <p>今回の実証・当日MTGの稼働計上、残り時間の使い方、AIバード内の担当分けを確認。次回MTGを2026年6月12日（金）13:00に設定し、蔵重先生側から宿題・要望を高橋へ送り、高橋が事前実証する進め方で合意。</p>
+          <div class="say">今月枠はまだ残りがあるので、次回までに事務所側でAIにやらせたいことや困っていることを送っていただければ、その範囲で事前に試して当日共有します。</div>
         </div>
       </section>
 
@@ -405,6 +409,7 @@
         <div class="decision">Antigravityは、仕訳チェック・PDFリネーム・財務分析の3業務でCodexと同等の精度で利用可能と判断。</div>
         <div class="decision">蔵重税理士事務所ではGoogle Workspaceを全社契約しているため、今後はGoogle環境を中心に実務適用を進める。</div>
         <div class="decision">チェック観点、命名規則、出力形式はMarkdownで管理し、結果はHTMLなど人が読みやすい形式でも出力する。</div>
+        <div class="decision">AIバードの今月稼働は、今回実証約1時間と当日MTG分を計上し、残り約5時間を次回までの宿題・追加実証に充てる。</div>
         <div class="decision">次回MTGは2026年6月12日（金）13:00からZoomで実施。</div>
 
         <h3>確認した内容</h3>
@@ -415,6 +420,17 @@
           <li>財務分析は、試算表Excelから面談用サマリー、KPI、社長への質問案をHTML形式で出力できる。</li>
           <li>HTMLはブラウザ確認に向く一方、印刷時はA4サイズやPDF化を意識した調整が必要。</li>
           <li>Google AI Proの共有利用では、モデルクォータやトークン消費が実務上の制約になりうる。</li>
+          <li>AIバード側の稼働について、今月は当日時点で約2時間利用済み、今回実証とMTGを含めても残り約5時間の余地があると確認。</li>
+          <li>AIバード側の3名体制について、会計業務と相続業務ではテーマが異なるため、高橋担当分と相続担当分を分けて活用する方向性が話題になった。</li>
+        </ul>
+
+        <h3>AIバード稼働に関する議論</h3>
+        <ul>
+          <li>高橋は、今回のAntigravity再現実証について約1時間の実績として計上する想定を共有した。</li>
+          <li>当日MTG分も稼働として扱う前提で、今月枠は当日時点で約2時間利用済み、単純計算で残り約5時間程度と整理した。</li>
+          <li>残り時間は、次回までに蔵重先生側から送られる「AIに取り組んでほしい宿題・要望」の事前実証に充てる。</li>
+          <li>AIバード側の3名体制について、主体的に動けていないメンバーがいる点が課題として共有された。</li>
+          <li>会計領域と相続領域では扱うテーマが異なるため、高橋の会計担当分と相続担当者側を分ける方がよい、という方向で認識を合わせた。</li>
         </ul>
 
         <h3>論点・注意点</h3>
@@ -474,8 +490,33 @@
               <td>命名規則、仕訳チェック観点、財務分析観点をMarkdownで管理し、必要に応じて更新する。</td>
               <td><span class="tag watch">継続</span></td>
             </tr>
+            <tr>
+              <td>7</td>
+              <td class="owner">高橋 / 蔵重先生側</td>
+              <td>AIバード残り稼働約5時間の範囲で対応する宿題・追加実証テーマを整理し、次回までに高橋へ共有する。</td>
+              <td><span class="tag todo">次回まで</span></td>
+            </tr>
           </tbody>
         </table>
+      </section>
+
+      <section class="section full">
+        <h2>トランスクリプト</h2>
+        <p>CirclebackのTranscriptタブから、0:17-53:11までの全文を回収しました。自動文字起こしのため、話者名や専門用語に誤認識があります。</p>
+        <div class="summary-grid">
+          <div class="summary-card">
+            <strong>共有用要約</strong>
+            <a href="../materials/2026-06-03_transcript_summary.md">2026-06-03_transcript_summary.md</a>
+          </div>
+          <div class="summary-card">
+            <strong>読み返し用整形版</strong>
+            <a href="../materials/2026-06-03_transcript_formatted.md">2026-06-03_transcript_formatted.md</a>
+          </div>
+          <div class="summary-card">
+            <strong>Circleback生データ</strong>
+            <a href="../materials/2026-06-03_transcript_raw.md">2026-06-03_transcript_raw.md</a>
+          </div>
+        </div>
       </section>
 
       <section class="section">
@@ -490,7 +531,7 @@
 
       <section class="section">
         <h2>出典・補足</h2>
-        <p class="source">主出典: Gmail受信のCircleback通知メール「Notes for 蔵重先生MTG」（受信: 2026-06-03 11:04 JST頃）。補助出典: Zoom AI要約メール（受信: 2026-06-03 10:53 JST頃）。</p>
+        <p class="source">主出典: Circleback会議ページの全文トランスクリプト、Gmail受信のCircleback通知メール「Notes for 蔵重先生MTG」（受信: 2026-06-03 11:04 JST頃）。補助出典: Zoom AI要約メール（受信: 2026-06-03 10:53 JST頃）。</p>
         <div class="note">Zoom要約には「次回の打ち合わせは9月12日午後1時」とありますが、Circleback本文では「6月12日（金）13:00」とされており、会議文脈上も次回日程として自然なため、本メモでは2026年6月12日（金）13:00を採用しています。</div>
       </section>
     </main>
