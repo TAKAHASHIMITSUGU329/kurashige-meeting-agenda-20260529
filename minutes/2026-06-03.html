@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>2026-06-03 蔵重先生MTG スクリプト・議事メモ</title>
+  <meta name="description" content="Circleback通知をもとに作成した2026年6月3日 蔵重先生MTGの打ち合わせスクリプト、議事メモ、決定事項、アクションアイテム。">
+  <style>
+    :root {
+      --ink: #17202a;
+      --muted: #637083;
+      --line: #d8e0ea;
+      --paper: #ffffff;
+      --wash: #f5f7fb;
+      --navy: #18345e;
+      --blue: #2563eb;
+      --teal: #0f766e;
+      --amber: #b45309;
+      --red: #b91c1c;
+      --shadow: 0 16px 36px rgba(23, 32, 42, 0.08);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background: var(--wash);
+      color: var(--ink);
+      font-family: -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Noto Sans JP", "Yu Gothic", sans-serif;
+      line-height: 1.75;
+    }
+
+    a {
+      color: var(--blue);
+    }
+
+    .page {
+      max-width: 1160px;
+      margin: 0 auto;
+      padding: 32px 20px 56px;
+    }
+
+    .topbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 18px;
+    }
+
+    .button {
+      appearance: none;
+      border: 1px solid var(--line);
+      background: var(--paper);
+      color: var(--ink);
+      border-radius: 8px;
+      cursor: pointer;
+      font: inherit;
+      font-weight: 700;
+      padding: 9px 13px;
+      text-decoration: none;
+    }
+
+    .button.primary {
+      background: var(--navy);
+      color: #ffffff;
+      border-color: var(--navy);
+    }
+
+    .hero {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-top: 8px solid var(--navy);
+      border-radius: 8px;
+      box-shadow: var(--shadow);
+      padding: 28px;
+      margin-bottom: 22px;
+    }
+
+    .eyebrow {
+      color: var(--teal);
+      font-size: 0.82rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      font-size: clamp(1.8rem, 4vw, 2.7rem);
+      line-height: 1.25;
+      margin: 8px 0 12px;
+      letter-spacing: 0;
+    }
+
+    h2 {
+      border-left: 5px solid var(--navy);
+      font-size: 1.35rem;
+      line-height: 1.35;
+      margin: 0 0 16px;
+      padding-left: 12px;
+      letter-spacing: 0;
+    }
+
+    h3 {
+      font-size: 1.05rem;
+      margin: 0 0 8px;
+      letter-spacing: 0;
+    }
+
+    p {
+      margin: 0 0 12px;
+    }
+
+    .lead {
+      color: var(--muted);
+      font-size: 1.05rem;
+      max-width: 860px;
+    }
+
+    .meta {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 22px;
+    }
+
+    .meta div {
+      background: #f8fafc;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 12px;
+    }
+
+    .meta span {
+      color: var(--muted);
+      display: block;
+      font-size: 0.78rem;
+      font-weight: 800;
+      margin-bottom: 4px;
+    }
+
+    .layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+      align-items: start;
+    }
+
+    .section {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      box-shadow: 0 8px 22px rgba(23, 32, 42, 0.05);
+      padding: 22px;
+      margin-bottom: 18px;
+    }
+
+    .full {
+      grid-column: 1 / -1;
+    }
+
+    .summary-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .summary-card {
+      background: #f8fafc;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 14px;
+    }
+
+    .summary-card strong {
+      color: var(--navy);
+      display: block;
+      margin-bottom: 6px;
+    }
+
+    ul, ol {
+      margin: 0;
+      padding-left: 1.25rem;
+    }
+
+    li {
+      margin: 0 0 8px;
+    }
+
+    .script-item {
+      border-bottom: 1px solid var(--line);
+      padding: 14px 0;
+    }
+
+    .script-item:first-of-type {
+      padding-top: 0;
+    }
+
+    .script-item:last-child {
+      border-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    .time {
+      color: var(--blue);
+      font-weight: 800;
+      margin-right: 8px;
+    }
+
+    .say {
+      background: #eef6ff;
+      border: 1px solid #c7ddff;
+      border-radius: 8px;
+      margin-top: 8px;
+      padding: 12px;
+    }
+
+    .decision {
+      border-left: 4px solid var(--teal);
+      background: #ecfdf5;
+      padding: 10px 12px;
+      border-radius: 6px;
+      margin-bottom: 10px;
+    }
+
+    .note {
+      border-left: 4px solid var(--amber);
+      background: #fff7ed;
+      color: #5f3512;
+      padding: 10px 12px;
+      border-radius: 6px;
+    }
+
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      font-size: 0.93rem;
+    }
+
+    th, td {
+      border-bottom: 1px solid var(--line);
+      padding: 10px;
+      text-align: left;
+      vertical-align: top;
+    }
+
+    th {
+      background: #f8fafc;
+      color: var(--muted);
+      font-weight: 800;
+    }
+
+    .owner {
+      color: var(--navy);
+      font-weight: 800;
+      white-space: nowrap;
+    }
+
+    .tag {
+      border-radius: 999px;
+      display: inline-block;
+      font-size: 0.76rem;
+      font-weight: 800;
+      padding: 2px 8px;
+    }
+
+    .tag.done {
+      background: #dcfce7;
+      color: #166534;
+    }
+
+    .tag.todo {
+      background: #fee2e2;
+      color: var(--red);
+    }
+
+    .tag.watch {
+      background: #fef3c7;
+      color: #92400e;
+    }
+
+    .source {
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 880px) {
+      .layout,
+      .meta,
+      .summary-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .topbar {
+        align-items: stretch;
+        flex-direction: column;
+      }
+    }
+
+    @media print {
+      body {
+        background: #ffffff;
+      }
+
+      .page {
+        padding: 0;
+      }
+
+      .topbar {
+        display: none;
+      }
+
+      .hero,
+      .section {
+        box-shadow: none;
+        break-inside: avoid;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <nav class="topbar" aria-label="ページ操作">
+      <a class="button" href="../agenda_20260603.html">6/3アジェンダへ</a>
+      <button class="button primary" onclick="window.print()">印刷・PDF保存</button>
+    </nav>
+
+    <header class="hero">
+      <div class="eyebrow">Circleback Based Meeting Notes</div>
+      <h1>2026-06-03 蔵重先生MTG スクリプト・議事メモ</h1>
+      <p class="lead">Circleback通知メール「Notes for 蔵重先生MTG」とZoom要約を照合し、打ち合わせで話した流れを再現しやすいスクリプト、議事メモ、決定事項、アクションアイテムとして整理しました。</p>
+      <div class="meta">
+        <div><span>日時</span>2026年6月3日（水）10:00-11:00 JST</div>
+        <div><span>形式</span>Zoom</div>
+        <div><span>参加者</span>蔵重先生、高橋 貢</div>
+        <div><span>出典</span>Circleback通知、Zoom AI要約</div>
+      </div>
+    </header>
+
+    <main class="layout">
+      <section class="section full">
+        <h2>要約</h2>
+        <div class="summary-grid">
+          <div class="summary-card">
+            <strong>本日の結論</strong>
+            Antigravityエージェントが、仕訳チェック・PDFリネーム・財務分析でCodexと同等の精度で動作することを確認。今後はGoogle環境で実務に慣れていく方針で合意。
+          </div>
+          <div class="summary-card">
+            <strong>主要な課題</strong>
+            Google AI Proのモデルクォータが最長7日リフレッシュされない可能性があり、PDF OCR相当の処理ではトークン消費が大きい点が実運用上のリスク。
+          </div>
+          <div class="summary-card">
+            <strong>次回</strong>
+            2026年6月12日（金）13:00にZoomで実施。蔵重先生側から、AIに取り組んでほしい宿題・要望を高橋へ送付。
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2>打ち合わせスクリプト</h2>
+
+        <div class="script-item">
+          <h3><span class="time">10:00-10:05</span>導入・記録方法の確認</h3>
+          <p>Circlebackで会議を記録し、AIで議事メモを生成していることを共有。前回PoCの振り返りに入る。</p>
+          <div class="say">本日は前回の宿題だった3つの実証結果と、Google環境で同じことができるかを中心に確認します。会議メモはCirclebackでも記録して、あとで議事メモにまとめます。</div>
+        </div>
+
+        <div class="script-item">
+          <h3><span class="time">10:05-10:20</span>前回PoCとAntigravity再現結果</h3>
+          <p>弥生会計CSVの仕訳チェック、不動産管理PDFのリネーム、試算表Excelからの財務分析を、Antigravityでも再現できたことを説明。</p>
+          <div class="say">前回Codexで試した処理は、Google Cloud環境のAntigravityでも基本的に同じ精度で再現できました。通常のGeminiやGPTとの違いは、プロジェクトフォルダを指定して、その中のファイルを理解しながら操作できる点です。</div>
+        </div>
+
+        <div class="script-item">
+          <h3><span class="time">10:20-10:35</span>PDFリネームと命名規則</h3>
+          <p>AIがPDF内容を読み取り自律的に命名できる一方、ばらつきを防ぐには命名規則を事前にMarkdownなどで明示する必要があることを確認。</p>
+          <div class="say">AIはPDFの中身を読んでファイル名を決められます。ただ、毎回同じ粒度で命名するには、年月、物件名、帳票種別、金額など、どこまで入れるかをルール化して渡すのが大事です。</div>
+        </div>
+
+        <div class="script-item">
+          <h3><span class="time">10:35-10:48</span>チェック観点リストの育て方</h3>
+          <p>仕訳チェックや財務分析は、最初から完璧な指示を作るより、粗く投げて結果を見ながらMarkdownの観点リストを更新していく運用が実践的と説明。</p>
+          <div class="say">チェック観点と出力結果を別々のMarkdownで残しておくと、AIの判断がブラックボックスになりにくいです。科目チェック、消費税区分、残高試算表の見方などは、使いながら観点を足していく形が現実的です。</div>
+        </div>
+
+        <div class="script-item">
+          <h3><span class="time">10:48-10:55</span>利用制限・トークン消費</h3>
+          <p>Google AI Proの共有アカウントでモデルクォータがロックされるリスク、スキャンPDF処理のトークン消費が大きい可能性を確認。</p>
+          <div class="say">実務で一番気になるのは、容量制限に当たって使えなくなることです。特にスキャンPDFの読み取りはトークン消費が大きいはずなので、どの処理がどれくらい消費するのかを次回までに調べます。</div>
+        </div>
+
+        <div class="script-item">
+          <h3><span class="time">10:55-11:00</span>次回までの宿題</h3>
+          <p>次回MTGを2026年6月12日（金）13:00に設定。蔵重先生側から宿題・要望を高橋へ送り、高橋が事前実証する進め方で合意。</p>
+          <div class="say">次回は6月12日13時で進めましょう。それまでに、事務所側でAIにやらせたいことや困っていることを送っていただければ、こちらで事前に試して当日共有します。</div>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2>議事メモ</h2>
+
+        <h3>合意事項</h3>
+        <div class="decision">Antigravityは、仕訳チェック・PDFリネーム・財務分析の3業務でCodexと同等の精度で利用可能と判断。</div>
+        <div class="decision">蔵重税理士事務所ではGoogle Workspaceを全社契約しているため、今後はGoogle環境を中心に実務適用を進める。</div>
+        <div class="decision">チェック観点、命名規則、出力形式はMarkdownで管理し、結果はHTMLなど人が読みやすい形式でも出力する。</div>
+        <div class="decision">次回MTGは2026年6月12日（金）13:00からZoomで実施。</div>
+
+        <h3>確認した内容</h3>
+        <ul>
+          <li>Antigravityはプロジェクトフォルダを指定し、フォルダ内ファイルを理解しながらチャット・操作できる。</li>
+          <li>PDFリネームはAIが内容から命名できるが、命名の揺れを防ぐためには明確な規則が必要。</li>
+          <li>仕訳チェックは、Markdownのチェック観点リストを参照し、結果を別ファイルに出す運用が望ましい。</li>
+          <li>財務分析は、試算表Excelから面談用サマリー、KPI、社長への質問案をHTML形式で出力できる。</li>
+          <li>HTMLはブラウザ確認に向く一方、印刷時はA4サイズやPDF化を意識した調整が必要。</li>
+          <li>Google AI Proの共有利用では、モデルクォータやトークン消費が実務上の制約になりうる。</li>
+        </ul>
+
+        <h3>論点・注意点</h3>
+        <ul>
+          <li>チェック観点は一度で完成させるのではなく、実例に合わせて育てる。</li>
+          <li>勘定科目チェックと消費税区分チェックは分けても混在させてもよいが、運用者が理解しやすい構成を優先する。</li>
+          <li>スキャンPDFのOCR相当処理はトークン消費が大きい可能性が高く、制限到達時の代替運用も検討する。</li>
+          <li>初心者向けのAIエージェント学習リソースが必要。</li>
+        </ul>
+      </section>
+
+      <section class="section full">
+        <h2>アクションアイテム</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>担当</th>
+              <th>内容</th>
+              <th>期限・状態</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td class="owner">高橋</td>
+              <td>Anthropic Claudeのプロンプトスキル機能の有無・使い方を確認して共有する。</td>
+              <td><span class="tag todo">次回まで</span></td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td class="owner">高橋</td>
+              <td>Anthropic Claudeのモデルクォータがロックされる原因・履歴・対策を調査する。</td>
+              <td><span class="tag todo">次回まで</span></td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td class="owner">高橋</td>
+              <td>スキャンPDFリネーム処理のトークン消費量を調査し、消費を抑える運用案とあわせて共有する。</td>
+              <td><span class="tag todo">次回まで</span></td>
+            </tr>
+            <tr>
+              <td>4</td>
+              <td class="owner">高橋</td>
+              <td>初心者向けのAI活用YouTube動画を選定し、LINEで共有する。</td>
+              <td><span class="tag todo">早め</span></td>
+            </tr>
+            <tr>
+              <td>5</td>
+              <td class="owner">蔵重先生側</td>
+              <td>次回打ち合わせに向けて、AIに取り組んでほしい宿題・要望を高橋へ送る。</td>
+              <td><span class="tag todo">できるだけ早く</span></td>
+            </tr>
+            <tr>
+              <td>6</td>
+              <td class="owner">高橋</td>
+              <td>命名規則、仕訳チェック観点、財務分析観点をMarkdownで管理し、必要に応じて更新する。</td>
+              <td><span class="tag watch">継続</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="section">
+        <h2>次回準備メモ</h2>
+        <ul>
+          <li>AIにやらせたい実務テーマを、蔵重先生側から具体例つきで受け取る。</li>
+          <li>受領テーマをAntigravityまたはClaudeで事前実証し、画面共有できる状態にする。</li>
+          <li>クォータ制限、履歴確認、リフレッシュタイミング、PDF処理の消費量を整理する。</li>
+          <li>A4印刷・PDF化しやすいHTML出力テンプレートを用意する。</li>
+        </ul>
+      </section>
+
+      <section class="section">
+        <h2>出典・補足</h2>
+        <p class="source">主出典: Gmail受信のCircleback通知メール「Notes for 蔵重先生MTG」（受信: 2026-06-03 11:04 JST頃）。補助出典: Zoom AI要約メール（受信: 2026-06-03 10:53 JST頃）。</p>
+        <div class="note">Zoom要約には「次回の打ち合わせは9月12日午後1時」とありますが、Circleback本文では「6月12日（金）13:00」とされており、会議文脈上も次回日程として自然なため、本メモでは2026年6月12日（金）13:00を採用しています。</div>
+      </section>
+    </main>
+  </div>
+</body>
+</html>
