@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>2026-06-03 蔵重先生MTG 宿題回答レポート</title>
+  <meta name="description" content="2026年6月3日 蔵重先生MTGで出た宿題に対する調査回答。Claude Skills、クォータ制限、PDFトークン消費、AI活用学習リソース、次回までの運用案。">
+  <style>
+    :root {
+      --ink: #17202a;
+      --muted: #637083;
+      --line: #d8e0ea;
+      --paper: #ffffff;
+      --wash: #f5f7fb;
+      --navy: #18345e;
+      --blue: #2563eb;
+      --teal: #0f766e;
+      --amber: #b45309;
+      --red: #b91c1c;
+      --green-bg: #ecfdf5;
+      --blue-bg: #eef6ff;
+      --amber-bg: #fff7ed;
+      --shadow: 0 16px 36px rgba(23, 32, 42, 0.08);
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      background: var(--wash);
+      color: var(--ink);
+      font-family: -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Noto Sans JP", "Yu Gothic", sans-serif;
+      line-height: 1.75;
+    }
+
+    a { color: var(--blue); }
+
+    .page {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 32px 20px 56px;
+    }
+
+    .topbar {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      align-items: center;
+      margin-bottom: 18px;
+    }
+
+    .button {
+      appearance: none;
+      border: 1px solid var(--line);
+      background: var(--paper);
+      color: var(--ink);
+      border-radius: 8px;
+      cursor: pointer;
+      display: inline-flex;
+      font: inherit;
+      font-weight: 700;
+      padding: 9px 13px;
+      text-decoration: none;
+    }
+
+    .button.primary {
+      background: var(--navy);
+      border-color: var(--navy);
+      color: #fff;
+    }
+
+    .hero {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-top: 8px solid var(--navy);
+      border-radius: 8px;
+      box-shadow: var(--shadow);
+      margin-bottom: 22px;
+      padding: 28px;
+    }
+
+    .eyebrow {
+      color: var(--teal);
+      font-size: 0.82rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      font-size: clamp(1.8rem, 4vw, 2.6rem);
+      line-height: 1.25;
+      margin: 8px 0 12px;
+      letter-spacing: 0;
+    }
+
+    h2 {
+      border-left: 5px solid var(--navy);
+      font-size: 1.35rem;
+      line-height: 1.35;
+      margin: 0 0 16px;
+      padding-left: 12px;
+      letter-spacing: 0;
+    }
+
+    h3 {
+      color: var(--navy);
+      font-size: 1.05rem;
+      margin: 0 0 8px;
+      letter-spacing: 0;
+    }
+
+    p { margin: 0 0 12px; }
+
+    .lead {
+      color: var(--muted);
+      font-size: 1.05rem;
+      max-width: 900px;
+    }
+
+    .meta {
+      display: grid;
+      gap: 12px;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      margin-top: 22px;
+    }
+
+    .meta div {
+      background: #f8fafc;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 12px;
+    }
+
+    .meta span {
+      color: var(--muted);
+      display: block;
+      font-size: 0.78rem;
+      font-weight: 800;
+      margin-bottom: 4px;
+    }
+
+    .layout {
+      display: grid;
+      gap: 18px;
+      grid-template-columns: 1fr 1fr;
+      align-items: start;
+    }
+
+    .section {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      box-shadow: 0 8px 22px rgba(23, 32, 42, 0.05);
+      margin-bottom: 18px;
+      padding: 22px;
+    }
+
+    .full { grid-column: 1 / -1; }
+
+    .summary-grid {
+      display: grid;
+      gap: 12px;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .card {
+      background: #f8fafc;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 14px;
+    }
+
+    .card strong {
+      color: var(--navy);
+      display: block;
+      margin-bottom: 6px;
+    }
+
+    .answer {
+      background: var(--green-bg);
+      border-left: 5px solid var(--teal);
+      border-radius: 8px;
+      padding: 14px;
+      margin-bottom: 14px;
+    }
+
+    .caution {
+      background: var(--amber-bg);
+      border-left: 5px solid var(--amber);
+      border-radius: 8px;
+      color: #5f3512;
+      padding: 14px;
+      margin-bottom: 14px;
+    }
+
+    .sourcebox {
+      background: var(--blue-bg);
+      border: 1px solid #c7ddff;
+      border-radius: 8px;
+      padding: 14px;
+    }
+
+    ul, ol {
+      margin: 0;
+      padding-left: 1.25rem;
+    }
+
+    li { margin: 0 0 8px; }
+
+    table {
+      border-collapse: collapse;
+      font-size: 0.93rem;
+      width: 100%;
+    }
+
+    th, td {
+      border-bottom: 1px solid var(--line);
+      padding: 10px;
+      text-align: left;
+      vertical-align: top;
+    }
+
+    th {
+      background: #f8fafc;
+      color: var(--muted);
+      font-weight: 800;
+    }
+
+    .status {
+      border-radius: 999px;
+      display: inline-block;
+      font-size: 0.76rem;
+      font-weight: 800;
+      padding: 2px 8px;
+      white-space: nowrap;
+    }
+
+    .done { background: #dcfce7; color: #166534; }
+    .next { background: #fef3c7; color: #92400e; }
+    .watch { background: #dbeafe; color: #1d4ed8; }
+
+    .quote {
+      background: #f8fafc;
+      border-left: 4px solid var(--line);
+      border-radius: 6px;
+      color: var(--muted);
+      padding: 10px 12px;
+      white-space: pre-wrap;
+    }
+
+    @media (max-width: 900px) {
+      .layout, .summary-grid, .meta {
+        grid-template-columns: 1fr;
+      }
+
+      .topbar {
+        align-items: stretch;
+        flex-direction: column;
+      }
+    }
+
+    @media print {
+      body { background: #fff; }
+      .page { padding: 0; }
+      .topbar { display: none; }
+      .hero, .section { box-shadow: none; break-inside: avoid; }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <nav class="topbar" aria-label="ページ操作">
+      <a class="button" href="2026-06-03_蔵重先生MTG_スクリプト議事メモ.html">本日の議事メモへ</a>
+      <button class="button primary" onclick="window.print()">印刷・PDF保存</button>
+    </nav>
+
+    <header class="hero">
+      <div class="eyebrow">Homework Answer Report</div>
+      <h1>2026-06-03 蔵重先生MTG 宿題回答レポート</h1>
+      <p class="lead">本日の打ち合わせで出た宿題について、Claude Skills、Claude / Google Antigravityの利用制限、PDF処理のトークン消費、初心者向け学習リソース、次回までの運用案を調査・整理しました。</p>
+      <div class="meta">
+        <div><span>調査日</span>2026年6月3日</div>
+        <div><span>対象</span>蔵重税理士事務所様 AI活用支援</div>
+        <div><span>主な根拠</span>Anthropic / Google 公式情報</div>
+        <div><span>用途</span>次回MTG前の宿題回答・LINE共有素材</div>
+      </div>
+    </header>
+
+    <main class="layout">
+      <section class="section full">
+        <h2>結論</h2>
+        <div class="summary-grid">
+          <div class="card">
+            <strong>Claude Skills</strong>
+            利用可能。Free/Pro/Max/Team/Enterpriseで使え、Code execution and file creationの有効化が前提。会計チェック観点やPDF命名規則は「カスタムSkill化」に向く。
+          </div>
+          <div class="card">
+            <strong>クォータ制限</strong>
+            ロックは故障というより、5時間枠・週次枠・作業量ベースの消費に当たっている可能性が高い。大きいPDF・長い会話・高推論モデルは消費が重い。
+          </div>
+          <div class="card">
+            <strong>次回までの進め方</strong>
+            まずは「小さいPDF・短い会話・観点Markdown」を基本運用にし、実務テーマを1-2件に絞って追加実証するのがよい。
+          </div>
+        </div>
+      </section>
+
+      <section class="section full">
+        <h2>宿題一覧と回答</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>宿題</th>
+              <th>回答</th>
+              <th>次の動き</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td>Anthropic Claudeのプロンプトスキル / Skills機能を確認</td>
+              <td>Claude Skillsは公式機能として提供済み。Built-in Skillsに加え、独自ワークフローをZIPでアップロードできる。</td>
+              <td><span class="status done">回答済み</span> 仕訳チェック・PDF命名・財務分析の3Skill案を作る。</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>Claude / Antigravityのクォータロック原因を調査</td>
+              <td>Claudeは会話長、添付ファイル、ツール利用などで制限消費が増える。Antigravityは「作業量」に応じてクォータを消費し、Pro/Ultraは5時間ごとに更新される枠がある。</td>
+              <td><span class="status watch">要観察</span> ロック時の画面表示、残量、モデル名、PDF枚数を記録する。</td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td>スキャンPDF処理のトークン消費量を調査</td>
+              <td>PDFはページごとに画像化されるため重い。Claude APIではテキストだけで1ページ約1,500-3,000 tokens、さらに画像分が加算される。</td>
+              <td><span class="status done">回答済み</span> PDFリネームは1回あたり1-5枚程度から始める。</td>
+            </tr>
+            <tr>
+              <td>4</td>
+              <td>トークン消費を抑える運用を整理</td>
+              <td>PDFを分割、必要ページだけ投入、命名ルールを固定、同じ資料はProject/キャッシュを使う、長い会話を切る、結果はMarkdownで残す。</td>
+              <td><span class="status done">回答済み</span> 「スキャンPDF投入ルール」を事務所用に1枚化する。</td>
+            </tr>
+            <tr>
+              <td>5</td>
+              <td>初心者向けAI活用YouTube動画をLINEで共有</td>
+              <td>公式動画＋日本語の超入門動画を少数だけ送るのがよい。最初から長時間・開発者向け動画を送ると離脱しやすい。</td>
+              <td><span class="status next">共有候補あり</span> 下部のLINE文面をそのまま共有可能。</td>
+            </tr>
+            <tr>
+              <td>6</td>
+              <td>次回までにAIに取り組んでほしい宿題・要望を受ける</td>
+              <td>追加実証は広げすぎず、1. PDFリネーム、2. 仕訳チェック、3. 給与計算補助のいずれかから1-2件に絞る。</td>
+              <td><span class="status next">蔵重先生側待ち</span> 具体例・ファイル・期待出力を送ってもらう。</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="section">
+        <h2>1. Claude Skillsの回答</h2>
+        <div class="answer">
+          <h3>答え</h3>
+          <p>Claude Skillsはあります。Claudeに専門知識・手順・会社固有のワークフローを持たせるための機能で、Excel、Word、PowerPoint、PDFなどのAnthropic製Built-in Skillsも用意されています。カスタムSkillはZIPでアップロードできます。</p>
+        </div>
+        <h3>事務所での使いどころ</h3>
+        <ul>
+          <li>仕訳チェックSkill: 弥生CSVを読み、科目・税区分・給与・手形・大口取引を確認する。</li>
+          <li>PDF命名Skill: 不動産管理PDFから年月・物件・帳票種別・金額を読み、命名規則に従って候補名を出す。</li>
+          <li>財務分析Skill: 試算表から面談用サマリー、良い点、気になる点、社長への質問を出す。</li>
+          <li>給与計算補助Skill: 社保料率表・年齢・都道府県・報酬月額をもとに計算根拠を示す。</li>
+        </ul>
+        <div class="sourcebox">
+          <strong>根拠</strong>
+          <p>Anthropic Help Centerでは、SkillsはFree/Pro/Max/Team/Enterpriseで利用可能、Team/Enterpriseでは組織配布も可能と説明されています。Built-in SkillsにはExcel、Word、PowerPoint、PDF関連が含まれます。<a href="https://support.claude.com/en/articles/12512180-use-skills-in-claude">Use skills in Claude</a> / <a href="https://support.claude.com/en/articles/12512176-what-are-skills">What are Skills?</a></p>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2>2. クォータロックの回答</h2>
+        <div class="answer">
+          <h3>答え</h3>
+          <p>ロック原因は、単純な「回数制限」ではなく、会話の長さ、添付ファイルサイズ、PDF枚数、ツール利用、モデルの重さが合算されて制限に達した可能性が高いです。Google Antigravityも、作業量が多いタスクほどクォータを消費します。</p>
+        </div>
+        <h3>確認すべきこと</h3>
+        <ul>
+          <li>ロック時の画面表示: 「5時間後に回復」か「週次回復」か。</li>
+          <li>使用モデル: Gemini Pro系、Claude Opus系など重いモデルだったか。</li>
+          <li>投入物: PDFページ数、画像PDFかテキストPDFか、会話が長くなっていたか。</li>
+          <li>同じ共有アカウントを複数人で使っていないか。</li>
+        </ul>
+        <div class="caution">
+          <strong>実務上の見立て</strong>
+          <p>「最長7日リフレッシュされない」は、週次枠または無料枠/大きい作業量枠に当たった可能性があります。Pro/Ultraの5時間更新枠でも、重いPDF・長い会話・高推論モデルを使うと短時間で消費します。</p>
+        </div>
+        <div class="sourcebox">
+          <strong>根拠</strong>
+          <p>Claudeはメッセージ長、ファイルサイズ、会話長、ツール利用が利用制限に影響します。Claude Codeでは`/usage`でリセット時刻を確認できます。Google AntigravityはPro/Ultraで5時間ごとに更新されるクォータがあり、作業量に応じて消費されます。<a href="https://support.claude.com/en/articles/9797557-usage-limit-best-practices">Claude usage limit best practices</a> / <a href="https://code.claude.com/docs/en/errors">Claude Code error reference</a> / <a href="https://blog.google/feed/new-antigravity-rate-limits-pro-ultra-subsribers/">Google Antigravity rate limits</a></p>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2>3. PDFトークン消費の回答</h2>
+        <div class="answer">
+          <h3>答え</h3>
+          <p>スキャンPDF処理は重いです。ClaudeではPDFページを画像化し、抽出テキストと画像の両方を処理します。APIの目安では、テキスト分だけで1ページあたり約1,500-3,000 tokens、さらに画像処理分が加わります。</p>
+        </div>
+        <h3>ざっくり試算</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>PDF</th>
+              <th>想定消費</th>
+              <th>実務判断</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1ページの送金案内</td>
+              <td>Claude: 少なくとも1,500-3,000 tokens + 画像分</td>
+              <td>リネーム用途なら許容。まずは1-5件単位で運用。</td>
+            </tr>
+            <tr>
+              <td>3ページの不動産精算書</td>
+              <td>Claude: テキスト分だけで4,500-9,000 tokens + 画像分</td>
+              <td>一括大量投入は避ける。物件ごと・日ごとに分割。</td>
+            </tr>
+            <tr>
+              <td>画像PDF 20ページ</td>
+              <td>高負荷。会話履歴も長いとすぐ制限に近づく</td>
+              <td>必要ページだけ抜き出す。OCR済みテキスト化も検討。</td>
+            </tr>
+          </tbody>
+        </table>
+        <h3>消費を抑える運用</h3>
+        <ul>
+          <li>リネームだけなら「対象年月、物件名、帳票種別、金額」だけ抽出させる。</li>
+          <li>命名規則は毎回チャットで長く書かず、MarkdownまたはSkillに固定する。</li>
+          <li>同じPDFを何度も読ませない。結果をMarkdown/CSVに保存する。</li>
+          <li>大きいPDFはページ分割する。画質が悪いスキャンは先に回転・補正する。</li>
+          <li>会話が長くなったら新しいチャット/新しいプロジェクトに切る。</li>
+        </ul>
+        <div class="sourcebox">
+          <strong>根拠</strong>
+          <p>ClaudeのPDFサポートでは、PDFページを画像化し、テキストと画像として処理します。Gemini APIもPDFを視覚的に理解し、Gemini 3ではPDFページ由来の画像処理トークンを`IMAGE`として報告します。<a href="https://platform.claude.com/docs/en/build-with-claude/pdf-support">Claude PDF support</a> / <a href="https://ai.google.dev/gemini-api/docs/document-processing">Gemini document understanding</a></p>
+        </div>
+      </section>
+
+      <section class="section full">
+        <h2>4. 次回までの推奨運用</h2>
+        <div class="summary-grid">
+          <div class="card">
+            <strong>PDFリネーム</strong>
+            1回の投入は1-5ファイル程度。命名規則を固定し、結果をMarkdownまたはCSVに保存。大量処理は後で自動化。
+          </div>
+          <div class="card">
+            <strong>仕訳チェック</strong>
+            観点リストをMarkdownで固定。AIには「観点に照らして、疑義・理由・確認質問を表で出す」と指示。
+          </div>
+          <div class="card">
+            <strong>財務分析</strong>
+            Excel/試算表をもとに、社長面談用の一言サマリー、確認事項、質問案だけを作る。
+          </div>
+        </div>
+        <div class="caution" style="margin-top: 14px;">
+          <strong>次回MTGまでの依頼テンプレート</strong>
+          <p>蔵重先生側から送ってもらう内容は「やりたいこと」「対象ファイル」「理想の出力」「困っている点」の4点に絞ると、残り稼働約5時間の中で実証しやすいです。</p>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2>5. LINE共有用メッセージ案</h2>
+        <div class="quote">本日の宿題について調べたところ、ClaudeのSkills機能は利用可能でした。会計チェック観点やPDF命名規則を「Skill」やMarkdownとして持たせると、毎回同じ品質でAIに作業させやすくなります。
+
+一方で、PDF読み取りはかなりトークン消費が大きく、特にスキャンPDFは制限に当たりやすいです。まずは1-5件程度の小さいPDFで、命名規則を固定して試すのが安全です。
+
+次回までに「AIにやらせたいこと」「対象ファイル」「理想の出力」を送っていただければ、こちらで事前に実証して共有します。</div>
+      </section>
+
+      <section class="section">
+        <h2>6. 学習リソース候補</h2>
+        <h3>まず送るならこの順番</h3>
+        <ol>
+          <li>公式のClaude Skills概要: 何ができるかを確認する。</li>
+          <li>日本語のClaude Code/AIエージェント超入門動画: 画面操作の雰囲気をつかむ。</li>
+          <li>Antigravityの公式・解説記事: 制限やAgent Managerなど、運用上の注意点を確認する。</li>
+        </ol>
+        <div class="sourcebox">
+          <strong>候補リンク</strong>
+          <ul>
+            <li><a href="https://support.claude.com/en/articles/12512176-what-are-skills">Claude Skills公式ヘルプ</a></li>
+            <li><a href="https://support.claude.com/en/articles/12512180-use-skills-in-claude">Claude Skillsの使い方</a></li>
+            <li><a href="https://blog.google/feed/new-antigravity-rate-limits-pro-ultra-subsribers/">Google Antigravityの利用制限公式記事</a></li>
+            <li><a href="https://claudecodelab.jp/blogs/claude-code-youtube-learning/">Claude CodeをYouTubeで学ぶなら（日本語ガイド）</a></li>
+            <li><a href="https://yutura.net/channel/142527/video/F6GHmnOuQZc/">Claude Code超入門動画の紹介ページ</a></li>
+          </ul>
+        </div>
+        <div class="caution">
+          <strong>注意</strong>
+          <p>YouTube動画は更新が速く、細かい画面やプラン内容がすぐ変わります。動画は「操作イメージをつかむ」用途に限定し、制限・料金・組織共有は公式ページで確認するのが安全です。</p>
+        </div>
+      </section>
+
+      <section class="section full">
+        <h2>参考リンク</h2>
+        <ul>
+          <li>Anthropic: <a href="https://support.claude.com/en/articles/12512176-what-are-skills">What are Skills?</a></li>
+          <li>Anthropic: <a href="https://support.claude.com/en/articles/12512180-use-skills-in-claude">Use Skills in Claude</a></li>
+          <li>Anthropic: <a href="https://support.claude.com/en/articles/9797557-usage-limit-best-practices">Usage limit best practices</a></li>
+          <li>Anthropic: <a href="https://code.claude.com/docs/en/errors">Claude Code error reference</a></li>
+          <li>Anthropic API: <a href="https://platform.claude.com/docs/en/build-with-claude/pdf-support">PDF support</a></li>
+          <li>Google: <a href="https://support.google.com/gemini/answer/16275805?hl=en-GB">Gemini Apps limits and upgrades</a></li>
+          <li>Google: <a href="https://blog.google/feed/new-antigravity-rate-limits-pro-ultra-subsribers/">Google Antigravity rate limits</a></li>
+          <li>Google AI for Developers: <a href="https://ai.google.dev/gemini-api/docs/document-processing">Document understanding</a></li>
+        </ul>
+      </section>
+    </main>
+  </div>
+</body>
+</html>
