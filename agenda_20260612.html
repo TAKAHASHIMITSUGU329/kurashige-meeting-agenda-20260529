@@ -1,0 +1,756 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>2026-06-12 蔵重先生MTG アジェンダ</title>
+  <meta name="description" content="2026年6月12日 13:00-14:00 蔵重先生MTGのアジェンダ。前回宿題の確認と次回AI活用テーマの選定。">
+  <style>
+    :root {
+      --ink: #172033;
+      --muted: #5f6b7a;
+      --line: #dce3ea;
+      --soft: #f5f8fb;
+      --panel: #ffffff;
+      --blue: #1f5f99;
+      --blue-soft: #e8f2fb;
+      --green: #24785f;
+      --green-soft: #e8f5ef;
+      --amber: #8a5a12;
+      --amber-soft: #fff4dd;
+      --red: #9c3a33;
+      --red-soft: #fdecea;
+      --shadow: 0 18px 45px rgba(23, 32, 51, 0.08);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background: #eef3f7;
+      color: var(--ink);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans JP", "Hiragino Sans", "Yu Gothic", sans-serif;
+      line-height: 1.75;
+    }
+
+    .page {
+      max-width: 1160px;
+      margin: 0 auto;
+      padding: 28px 20px 56px;
+    }
+
+    .topbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 18px;
+    }
+
+    .crumb {
+      color: var(--muted);
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 0.03em;
+    }
+
+    .actions {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    .button {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--panel);
+      color: var(--ink);
+      cursor: pointer;
+      font: inherit;
+      font-size: 14px;
+      font-weight: 700;
+      padding: 9px 14px;
+      text-decoration: none;
+    }
+
+    .button.primary {
+      border-color: var(--blue);
+      background: var(--blue);
+      color: #ffffff;
+    }
+
+    .hero {
+      background: linear-gradient(135deg, #ffffff 0%, #f7fbff 100%);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      box-shadow: var(--shadow);
+      padding: 30px;
+      margin-bottom: 22px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      border-radius: 999px;
+      background: var(--blue-soft);
+      color: var(--blue);
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: 0.06em;
+      padding: 4px 12px;
+      margin-bottom: 14px;
+    }
+
+    h1 {
+      font-size: clamp(28px, 4vw, 42px);
+      line-height: 1.25;
+      margin: 0 0 12px;
+      letter-spacing: 0;
+    }
+
+    .lead {
+      color: var(--muted);
+      font-size: 17px;
+      margin: 0;
+      max-width: 880px;
+    }
+
+    .meta {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 22px;
+    }
+
+    .meta div {
+      background: rgba(255, 255, 255, 0.72);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 12px;
+      min-height: 82px;
+    }
+
+    .meta span {
+      display: block;
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 800;
+      margin-bottom: 5px;
+    }
+
+    .meta strong {
+      display: block;
+      font-size: 15px;
+      line-height: 1.45;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.25fr) minmax(300px, 0.75fr);
+      gap: 22px;
+      align-items: start;
+    }
+
+    .grid > * {
+      min-width: 0;
+    }
+
+    section {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      box-shadow: 0 10px 28px rgba(23, 32, 51, 0.05);
+      margin-bottom: 22px;
+      min-width: 0;
+      padding: 24px;
+    }
+
+    h2 {
+      border-left: 5px solid var(--blue);
+      font-size: 22px;
+      line-height: 1.35;
+      margin: 0 0 18px;
+      padding-left: 12px;
+    }
+
+    h3 {
+      font-size: 17px;
+      margin: 18px 0 8px;
+    }
+
+    p {
+      margin: 0 0 12px;
+    }
+
+    ul, ol {
+      margin: 0 0 12px 1.35em;
+      padding: 0;
+    }
+
+    li {
+      margin: 4px 0;
+    }
+
+    .table-wrap {
+      overflow-x: auto;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      margin: 12px 0;
+      max-width: 100%;
+      width: 100%;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      min-width: 720px;
+      background: #ffffff;
+      font-size: 14px;
+    }
+
+    th, td {
+      border-bottom: 1px solid var(--line);
+      padding: 11px 12px;
+      text-align: left;
+      vertical-align: top;
+    }
+
+    th {
+      background: var(--soft);
+      color: #344054;
+      font-weight: 800;
+      white-space: nowrap;
+    }
+
+    tr:last-child td {
+      border-bottom: 0;
+    }
+
+    code {
+      background: #f0f3f7;
+      border: 1px solid #e0e6ed;
+      border-radius: 5px;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      font-size: 0.92em;
+      padding: 1px 5px;
+    }
+
+    .timeline {
+      position: relative;
+      display: grid;
+      gap: 14px;
+    }
+
+    .slot {
+      display: grid;
+      grid-template-columns: 132px 1fr;
+      gap: 14px;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      background: #fbfdff;
+      padding: 14px;
+    }
+
+    .time {
+      color: var(--blue);
+      font-weight: 900;
+      white-space: nowrap;
+    }
+
+    .slot h3 {
+      margin-top: 0;
+    }
+
+    .badge-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 10px 0 0;
+    }
+
+    .badge {
+      border-radius: 999px;
+      background: var(--soft);
+      color: var(--ink);
+      display: inline-flex;
+      font-size: 13px;
+      font-weight: 800;
+      padding: 4px 10px;
+    }
+
+    .badge.green {
+      background: var(--green-soft);
+      color: var(--green);
+    }
+
+    .badge.amber {
+      background: var(--amber-soft);
+      color: var(--amber);
+    }
+
+    .badge.red {
+      background: var(--red-soft);
+      color: var(--red);
+    }
+
+    .callout {
+      border-left: 5px solid var(--green);
+      border-radius: 8px;
+      background: var(--green-soft);
+      padding: 14px 16px;
+      margin: 14px 0;
+    }
+
+    .callout strong {
+      color: var(--green);
+    }
+
+    .note {
+      border-radius: 8px;
+      background: var(--amber-soft);
+      color: #573a09;
+      padding: 14px 16px;
+      margin: 14px 0;
+    }
+
+    .decision-list {
+      display: grid;
+      gap: 10px;
+    }
+
+    .decision {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 12px;
+      background: #fbfdff;
+    }
+
+    .decision strong {
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    footer {
+      color: var(--muted);
+      font-size: 13px;
+      padding: 8px 2px;
+      text-align: center;
+    }
+
+    @media (max-width: 900px) {
+      .grid,
+      .meta {
+        grid-template-columns: 1fr;
+      }
+
+      .page {
+        overflow-x: hidden;
+      }
+
+      .topbar {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .actions {
+        justify-content: flex-start;
+      }
+
+      .slot {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media print {
+      body {
+        background: #ffffff;
+      }
+
+      .page {
+        max-width: none;
+        padding: 0;
+      }
+
+      .topbar,
+      .actions {
+        display: none;
+      }
+
+      .hero,
+      section {
+        box-shadow: none;
+        break-inside: avoid;
+      }
+
+      .grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <div class="topbar">
+      <div class="crumb">AIバード / 蔵重税理士事務所 / Meeting Agenda</div>
+      <div class="actions">
+        <a class="button" href="materials/2026-06-12_meeting-agenda.md">Markdown版</a>
+        <button class="button primary" type="button" onclick="window.print()">印刷・PDF保存</button>
+      </div>
+    </div>
+
+    <header class="hero">
+      <div class="eyebrow">2026-06-12 / 13:00-14:00</div>
+      <h1>蔵重先生MTG アジェンダ</h1>
+      <p class="lead">前回宿題の回答を確認し、蔵重税理士事務所で次に試すAI活用テーマを1-2件に絞るための60分アジェンダです。</p>
+      <div class="meta">
+        <div>
+          <span>日時</span>
+          <strong>2026年6月12日（金）13:00-14:00</strong>
+        </div>
+        <div>
+          <span>形式</span>
+          <strong>Zoom想定</strong>
+        </div>
+        <div>
+          <span>参加者</span>
+          <strong>蔵重先生、高橋 貢ほか</strong>
+        </div>
+        <div>
+          <span>目的</span>
+          <strong>宿題確認と次回実証テーマの選定</strong>
+        </div>
+      </div>
+    </header>
+
+    <div class="grid">
+      <main>
+        <section>
+          <h2>本日のゴール</h2>
+          <ol>
+            <li>前回宿題への回答を確認し、疑問点を解消する。</li>
+            <li>蔵重税理士事務所側で実際に試した結果、詰まった点、ロック状況を確認する。</li>
+            <li>次回までに高橋が実証するテーマを1-2件に絞る。</li>
+            <li>AIバード稼働残り時間の使い方と、会計領域・相続領域の切り分け方を確認する。</li>
+          </ol>
+          <div class="callout">
+            <strong>推奨着地点:</strong> 短期成果は「PDFリネーム運用」、会計業務の本命は「仕訳チェック運用」。給与計算補助はダミーデータで後日検証が安全。
+          </div>
+        </section>
+
+        <section>
+          <h2>アジェンダ 60分</h2>
+          <div class="timeline">
+            <article class="slot">
+              <div class="time">13:00-13:05</div>
+              <div>
+                <h3>1. オープニング・本日のゴール確認</h3>
+                <ul>
+                  <li>本日の目的を共有</li>
+                  <li>前回 2026年6月3日 MTG以降の状況確認</li>
+                  <li>今日決めたいことを確認</li>
+                </ul>
+              </div>
+            </article>
+
+            <article class="slot">
+              <div class="time">13:05-13:20</div>
+              <div>
+                <h3>2. 前回宿題の回答確認</h3>
+                <ul>
+                  <li>Claude Skillsは利用可能。仕訳チェック、PDF命名、財務分析、給与計算補助の手順化に使える。</li>
+                  <li>Claude / Antigravityの利用制限は、会話長・添付ファイル・PDF枚数・ツール利用・モデルの重さで消費が増える。</li>
+                  <li>スキャンPDFは重いため、1回1-5件、必要ページだけ、小さい単位で処理する運用が望ましい。</li>
+                  <li>初心者向け動画は、公式情報と日本語入門動画を少数に絞って共有する。</li>
+                </ul>
+                <div class="badge-row">
+                  <span class="badge green">宿題回答レポート確認</span>
+                  <span class="badge amber">LINE文面の送付判断</span>
+                  <span class="badge">PDF投入ルール</span>
+                </div>
+              </div>
+            </article>
+
+            <article class="slot">
+              <div class="time">13:20-13:35</div>
+              <div>
+                <h3>3. 事務所側で試した内容・困りごとの確認</h3>
+                <ul>
+                  <li>Antigravity / Claudeを触ってみたか</li>
+                  <li>どの作業でクォータ制限・ロックが出たか</li>
+                  <li>ロック時の表示は「5時間後に回復」か「週次回復」か</li>
+                  <li>PDFは何枚・何ファイル投入したか、スキャンPDFかテキストPDFか</li>
+                  <li>期待した出力と違った点は何か</li>
+                </ul>
+              </div>
+            </article>
+
+            <article class="slot">
+              <div class="time">13:35-13:50</div>
+              <div>
+                <h3>4. 次に実証するテーマの選定</h3>
+                <p>PDFリネーム、仕訳チェック、財務分析、給与計算補助から、次回までに検証するテーマを1-2件に絞る。</p>
+                <div class="badge-row">
+                  <span class="badge green">第1候補: PDFリネーム</span>
+                  <span class="badge green">第2候補: 仕訳チェック</span>
+                  <span class="badge amber">後日検証: 給与計算補助</span>
+                </div>
+              </div>
+            </article>
+
+            <article class="slot">
+              <div class="time">13:50-13:57</div>
+              <div>
+                <h3>5. AIバード稼働・担当領域の整理</h3>
+                <ul>
+                  <li>前回時点で残り約5時間を追加実証に充てる方針</li>
+                  <li>今日決めたテーマに、事前準備・検証・資料化の時間を割り当てる</li>
+                  <li>会計領域と相続領域で、担当者・進め方を分ける必要があるか確認</li>
+                </ul>
+              </div>
+            </article>
+
+            <article class="slot">
+              <div class="time">13:57-14:00</div>
+              <div>
+                <h3>6. クロージング・次回アクション確認</h3>
+                <ul>
+                  <li>次回までに実証するテーマ</li>
+                  <li>事務所側から受け取るデータ</li>
+                  <li>高橋側の作成物</li>
+                  <li>次回MTG日程または共有タイミング</li>
+                </ul>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <section>
+          <h2>前回MTGからの宿題確認</h2>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>担当</th>
+                  <th>宿題</th>
+                  <th>現状</th>
+                  <th>今日確認したいこと</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>1</td>
+                  <td>高橋</td>
+                  <td>Claude Skills機能の有無・使い方を確認</td>
+                  <td>回答済み。会計チェック観点、PDF命名規則、財務分析手順のSkill化に向く。</td>
+                  <td>事務所でSkill化したい業務を決める</td>
+                </tr>
+                <tr>
+                  <td>2</td>
+                  <td>高橋</td>
+                  <td>Claude / Antigravityのクォータロック原因、履歴、対策を調査</td>
+                  <td>回答済み。会話長、添付ファイル、PDF枚数、ツール利用、モデルの重さで消費増。</td>
+                  <td>実際のロック画面・利用状況を共有いただけるか</td>
+                </tr>
+                <tr>
+                  <td>3</td>
+                  <td>高橋</td>
+                  <td>スキャンPDF処理のトークン消費量を調査</td>
+                  <td>回答済み。スキャンPDFは重い。1-5件単位、小分け運用が現実的。</td>
+                  <td>PDF投入ルールを事務所内ルールにするか</td>
+                </tr>
+                <tr>
+                  <td>4</td>
+                  <td>高橋</td>
+                  <td>初心者向けAI活用YouTube動画をLINEで共有</td>
+                  <td>共有候補あり。宿題回答レポート内にLINE文面案あり。</td>
+                  <td>共有済みか、未共有なら今日の後に送る</td>
+                </tr>
+                <tr>
+                  <td>5</td>
+                  <td>蔵重先生側</td>
+                  <td>AIに取り組んでほしい宿題・要望を高橋へ送る</td>
+                  <td>フォルダ内には追加要望ファイルは見当たらない。前回候補はPDFリネーム、仕訳チェック、給与計算補助。</td>
+                  <td>今日の場で優先テーマを1-2件に絞る</td>
+                </tr>
+                <tr>
+                  <td>6</td>
+                  <td>高橋 / 蔵重先生側</td>
+                  <td>AIバード残り稼働約5時間の使い方を整理</td>
+                  <td>前回時点で追加実証に充てる方針。</td>
+                  <td>今日の決定テーマに稼働を割り当てる</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <section>
+          <h2>次に実証するテーマ候補</h2>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>候補</th>
+                  <th>内容</th>
+                  <th>期待効果</th>
+                  <th>必要データ</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>PDFリネーム運用</strong></td>
+                  <td>スキャンPDFを少数投入し、命名規則に従ってリネーム候補を作る</td>
+                  <td>すぐ実務で使いやすい。トークン消費の実測もしやすい</td>
+                  <td>PDF 3-5件、命名ルール、保存先ルール</td>
+                </tr>
+                <tr>
+                  <td><strong>仕訳チェック運用</strong></td>
+                  <td>弥生CSVを観点Markdownに照らしてチェックし、疑義・確認質問を表で出す</td>
+                  <td>顧問先確認の漏れ防止につながる</td>
+                  <td>匿名化CSV、チェック観点、期待する出力形式</td>
+                </tr>
+                <tr>
+                  <td><strong>財務分析コメント</strong></td>
+                  <td>試算表から面談用サマリー・質問案を出す</td>
+                  <td>月次面談の準備時間短縮</td>
+                  <td>Excel / CSV、業種、社長に聞きたい観点</td>
+                </tr>
+                <tr>
+                  <td><strong>給与計算補助</strong></td>
+                  <td>社保料率・年齢・都道府県・報酬月額をもとに計算根拠を出す</td>
+                  <td>手作業計算の確認補助になる</td>
+                  <td>ダミー給与データ、都道府県、年齢、対象年月</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+      </main>
+
+      <aside>
+        <section>
+          <h2>フォルダ内容</h2>
+          <p>このフォルダには、蔵重税理士事務所向けAI活用支援の打ち合わせ資料、PoC成果物、会計サンプル、PDFリネーム実証、仕訳チェック、財務分析の資料がまとまっている。</p>
+          <div class="badge-row">
+            <span class="badge">議事メモ</span>
+            <span class="badge">宿題回答</span>
+            <span class="badge">仕訳チェック</span>
+            <span class="badge">財務分析</span>
+            <span class="badge">PDFリネーム</span>
+            <span class="badge">共有HTML</span>
+          </div>
+        </section>
+
+        <section>
+          <h2>本日決めたいこと</h2>
+          <div class="decision-list">
+            <div class="decision">
+              <strong>1. 次に実証する業務</strong>
+              PDFリネーム / 仕訳チェック / 財務分析 / 給与計算補助
+            </div>
+            <div class="decision">
+              <strong>2. 高橋が次回までに作るもの</strong>
+              実証レポート / 運用ルール / Skill案 / HTML共有資料
+            </div>
+            <div class="decision">
+              <strong>3. 蔵重先生側から受け取るもの</strong>
+              対象ファイル、理想の出力、困っている点
+            </div>
+            <div class="decision">
+              <strong>4. クォータ対策の運用</strong>
+              小分け投入、会話分割、モデル選択、ロック画面記録
+            </div>
+            <div class="decision">
+              <strong>5. AIバード稼働の配分</strong>
+              会計領域と相続領域を分けるか、会計側で何時間使うか
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h2>確認記録欄</h2>
+          <div class="table-wrap">
+            <table>
+              <tbody>
+                <tr><th>試した業務</th><td>&nbsp;</td></tr>
+                <tr><th>使ったAI / モデル</th><td>&nbsp;</td></tr>
+                <tr><th>投入ファイル</th><td>&nbsp;</td></tr>
+                <tr><th>ロック・制限の有無</th><td>&nbsp;</td></tr>
+                <tr><th>困った点</th><td>&nbsp;</td></tr>
+                <tr><th>次に改善したい点</th><td>&nbsp;</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <section>
+          <h2>高橋側の持参メモ</h2>
+          <ul>
+            <li>Claude Skillsは、仕訳チェック・PDF命名・財務分析の手順化に向く。</li>
+            <li>PDFリネームは、命名規則Markdownを固定する。</li>
+            <li>スキャンPDFは重いため、最初は1-5件単位で運用する。</li>
+            <li>ロック対策は、処理を小さくする、会話を短く切る、同じ資料を何度も読ませない、結果をMarkdownに保存する。</li>
+            <li>今日の主目的は、次に実務で試すテーマを決めること。</li>
+          </ul>
+        </section>
+      </aside>
+    </div>
+
+    <section>
+      <h2>次回までのアクション記入欄</h2>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>アクション</th>
+              <th>担当</th>
+              <th>期限</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td>本日決定した実証テーマの対象ファイルを共有</td>
+              <td>蔵重先生側</td>
+              <td>&nbsp;</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>実証テーマをAntigravity / Claude / Codexのいずれかで検証</td>
+              <td>高橋</td>
+              <td>&nbsp;</td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td>結果をMarkdownまたはHTMLで共有資料化</td>
+              <td>高橋</td>
+              <td>&nbsp;</td>
+            </tr>
+            <tr>
+              <td>4</td>
+              <td>ロック・クォータ発生時の画面、モデル、PDF枚数を記録</td>
+              <td>蔵重先生側</td>
+              <td>&nbsp;</td>
+            </tr>
+            <tr>
+              <td>5</td>
+              <td>初心者向け動画・LINE文面の共有</td>
+              <td>高橋</td>
+              <td>&nbsp;</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <footer>
+      参照資料: <code>2026-06-03_蔵重先生MTG_スクリプト議事メモ.html</code> / <code>2026-06-03_蔵重先生MTG_宿題回答レポート.html</code>
+    </footer>
+  </div>
+</body>
+</html>
